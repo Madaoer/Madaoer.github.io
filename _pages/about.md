@@ -35,7 +35,7 @@ I am currently a final year graduate student at Beijing Jiaotong University. My 
 **Xindi Yang**\*, Zeke Xie\*, Yujie Yang, Qi Sun, Yixiang Jiang, Haoran Wang, Yunfeng Cai, Mingming Sun
 
 [**Project**](https://madaoer.github.io/s3im_nerf/) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
-- S3IM is a plug-in loss, impove the performance of NeRFs unreasonably.
+- S3IM is a plug-and-play loss, effective and robust in various difficult tasks.
 - **Academic Impact**: Our work are promoted by more than 4 media and forums, such as [极世平台](https://mp.weixin.qq.com/s/GZnnX1lmenvpT2kN0SaWqA) 
 </div>
 </div>
