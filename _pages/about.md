@@ -32,7 +32,7 @@ I am currently a final year graduate student at Beijing Jiaotong University. My 
 
 [S3IM: Stochastic Structural SIMilarity and Its Unreasonable Effectiveness for Neural Fields](https://openaccess.thecvf.com/content/ICCV2023/papers/Xie_S3IM_Stochastic_Structural_SIMilarity_and_Its_Unreasonable_Effectiveness_for_Neural_ICCV_2023_paper.pdf)
 
-**Xindi Yang** *, Zeke Xie *, Yujie Yang, Qi Sun, Yixiang Jiang, Haoran Wang, Yunfeng Cai, Mingming Sun
+**Xindi Yang**\*, Zeke Xie\*, Yujie Yang, Qi Sun, Yixiang Jiang, Haoran Wang, Yunfeng Cai, Mingming Sun
 
 [**Project**](https://madaoer.github.io/s3im_nerf/) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
 - S3IM is a plug-in loss, impove the performance of NeRFs unreasonably.
