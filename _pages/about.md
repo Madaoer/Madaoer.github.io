@@ -21,6 +21,8 @@ I am currently a master student at Beijing Jiaotong University, major in Compute
 
 I am interested in the research on machine learning for neural fields, and my current research focuses on leveraging neural fields to enhance the quality and the robustness in autonomous driving simulations. Moreover, in the future, I pursue to extend neural fields in solving scientific problems.
 
+**I am actively looking for a PhD position for Fall 2024.**
+
 
 # 🔥 News
 - *2023.08*: &nbsp;🎉 [SDFStdudio](https://github.com/autonomousvision/sdfstudio) support [S3IM](https://github.com/Madaoer/S3IM-Neural-Fields). 
