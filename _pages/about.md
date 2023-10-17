@@ -30,22 +30,35 @@ I am interested in the research on machine learning for neural fields, and my cu
 # 📝 Publications 
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICCV 2023</div><img src='/images/paper_img2_500x300.png' alt="sym" width="100%"></div></div>
-<div class='paper-box-text' markdown="1">
-
-[S3IM: Stochastic Structural SIMilarity and Its Unreasonable Effectiveness for Neural Fields](https://openaccess.thecvf.com/content/ICCV2023/papers/Xie_S3IM_Stochastic_Structural_SIMilarity_and_Its_Unreasonable_Effectiveness_for_Neural_ICCV_2023_paper.pdf)
-
-**Xindi Yang**\*, Zeke Xie\*, Yujie Yang, Qi Sun, Yixiang Jiang, Haoran Wang, Yunfeng Cai, Mingming Sun
-
-[**Project**](https://madaoer.github.io/s3im_nerf/) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
-- S3IM is a plug-and-play loss, effective and robust in various difficult tasks.
-- **Academic Impact**: Our work are promoted by more than 4 media and forums, such as [知乎](https://www.zhihu.com/question/614056414/answer/3244688928), [极世平台](https://mp.weixin.qq.com/s/GZnnX1lmenvpT2kN0SaWqA) 
+  <div class='paper-box-text' markdown="1">
+  
+  [S3IM: Stochastic Structural SIMilarity and Its Unreasonable Effectiveness for Neural Fields](https://openaccess.thecvf.com/content/ICCV2023/papers/Xie_S3IM_Stochastic_Structural_SIMilarity_and_Its_Unreasonable_Effectiveness_for_Neural_ICCV_2023_paper.pdf)
+  
+  **Xindi Yang**\*, Zeke Xie\*, Yujie Yang, Qi Sun, Yixiang Jiang, Haoran Wang, Yunfeng Cai, Mingming Sun
+  
+  [**Project**](https://madaoer.github.io/s3im_nerf/) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
+  - S3IM is a plug-and-play loss, effective and robust in various difficult tasks.
+  - **Academic Impact**: Our work are promoted by more than 4 media and forums, such as [知乎](https://www.zhihu.com/question/614056414/answer/3244688928), [极世平台](https://mp.weixin.qq.com/s/GZnnX1lmenvpT2kN0SaWqA) 
+  </div>
 </div>
+
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICCV 2023</div><img src='/images/paper_img2_500x300.png' alt="sym" width="100%"></div></div>
+  <div class='paper-box-text' markdown="1">
+  
+  [S3IM: Stochastic Structural SIMilarity and Its Unreasonable Effectiveness for Neural Fields](https://openaccess.thecvf.com/content/ICCV2023/papers/Xie_S3IM_Stochastic_Structural_SIMilarity_and_Its_Unreasonable_Effectiveness_for_Neural_ICCV_2023_paper.pdf)
+  
+  **Xindi Yang**\*, Zeke Xie\*, Yujie Yang, Qi Sun, Yixiang Jiang, Haoran Wang, Yunfeng Cai, Mingming Sun
+  
+  [**Project**](https://madaoer.github.io/s3im_nerf/) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
+  - S3IM is a plug-and-play loss, effective and robust in various difficult tasks.
+  - **Academic Impact**: Our work are promoted by more than 4 media and forums, such as [知乎](https://www.zhihu.com/question/614056414/answer/3244688928), [极世平台](https://mp.weixin.qq.com/s/GZnnX1lmenvpT2kN0SaWqA) 
+  </div>
 </div>
 
 # 🎖 Honors and Awards
 - *2023* Outstanding Intern of the Year, Baidu Research
-- *2018, 2019, 2020*, Outstanding Scholarship of Beijing Jiaotong University
-- *2018*, National Contemporary uUndergraduate Mathematical Contest IN modeling in China, First Prize in Beijing region 
+- *2016-2022* Model Student of Academic Records of Beijing Jiaotong University
+- *2018* National Contemporary uUndergraduate Mathematical Contest IN Modeling in China, First Prize in Beijing region 
 
 # 📖 Educations
 - *2020.06 - 2023.10 (now)*, Master, School of Computer and Information Technology, Beijing Jiaotong University, Beijing.
