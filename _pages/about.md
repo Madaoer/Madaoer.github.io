@@ -42,7 +42,7 @@ I am interested in the research on machine learning for neural fields, and my cu
   </div>
 </div>
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICLR under review</div><img src='/images/paper2_fig.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICLR 2024 under review</div><img src='/images/paper2_fig.png' alt="sym" width="100%"></div></div>
   <div class='paper-box-text' markdown="1">
   
   Neural Field Classifiers via Target Encoding and Classification Loss
