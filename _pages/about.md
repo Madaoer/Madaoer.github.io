@@ -17,12 +17,14 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-I am currently a final year graduate student at Beijing Jiaotong University. My recent research interesting is research on machine learning for neural fields to enhance the quality and the robustness in autonomous driving simulations leveraging advanced AI technologies, including NeRF, generative models, to enhance the quality and the robustness in autonomous driving simulations. Beyond the applicaions in autonomous driving, I am also interested in extend the neural fields methods to science area. 
+I am currently a master student at Beijing Jiaotong University, major in Computer Science. I received B.S. in Computer Science from Beijing Jiaotong University in 2020. I am also a research intern at Cognitive Computing Lab, Baidu Research.
+
+I am interested in the research on machine learning for neural fields, and my current research focuses on leveraging neural fields to enhance the quality and the robustness in autonomous driving simulations. Moreover, in the future, I pursue to extend neural fields in solving scientific problems.
 
 
 # 🔥 News
-- *2023.08*: &nbsp;🎉 SDFStdudio support [S3IM](https://github.com/Madaoer/S3IM-Neural-Fields). 
-- *2023.08*: &nbsp;🎉 We release [S3IM](https://github.com/Madaoer/S3IM-Neural-Fields)(⭐️100+). 
+- *2023.08*: &nbsp;🎉 [SDFStdudio](https://github.com/autonomousvision/sdfstudio) support [S3IM](https://github.com/Madaoer/S3IM-Neural-Fields). 
+- *2023.08*: &nbsp;🔥 We release [S3IM](https://github.com/Madaoer/S3IM-Neural-Fields)(⭐️100+). 
 - *2022.07*: &nbsp;🎉 One paper [S3IM](https://arxiv.org/abs/2308.07032) is accepted by ICCV.
 
 # 📝 Publications 
@@ -36,16 +38,18 @@ I am currently a final year graduate student at Beijing Jiaotong University. My 
 
 [**Project**](https://madaoer.github.io/s3im_nerf/) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
 - S3IM is a plug-and-play loss, effective and robust in various difficult tasks.
-- **Academic Impact**: Our work are promoted by more than 4 media and forums, such as [极世平台](https://mp.weixin.qq.com/s/GZnnX1lmenvpT2kN0SaWqA) 
+- **Academic Impact**: Our work are promoted by more than 4 media and forums, such as [知乎](https://www.zhihu.com/question/614056414/answer/3244688928), [极世平台](https://mp.weixin.qq.com/s/GZnnX1lmenvpT2kN0SaWqA) 
 </div>
 </div>
 
 # 🎖 Honors and Awards
 - *2023* Outstanding Intern of the Year, Baidu Research
+- *2018, 2019, 2020*, Outstanding Scholarship of Beijing Jiaotong University
+- *2018*, National Contemporary uUndergraduate Mathematical Contest IN modeling in China, First Prize in Beijing region 
 
 # 📖 Educations
-- *2020.06 - 2023.10 (now)*, Graduate Student, School of Computer and Information Technology, Beijing Jiaotong University, Beijing.
-- *2016.09 - 2020.06*, Undergraduate Student, School of Computer and Information Technology, Beijing Jiaotong University, Beijing.
+- *2020.06 - 2023.10 (now)*, Master, School of Computer and Information Technology, Beijing Jiaotong University, Beijing.
+- *2016.09 - 2020.06*, Undergraduate, School of Computer and Information Technology, Beijing Jiaotong University, Beijing.
 
 # 💻 Internships
 - *2022.05 - 2023.10(now)*, [Baidu Research](http://research.baidu.com/), China.
