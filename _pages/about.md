@@ -57,9 +57,9 @@ I am interested in the research on machine learning for neural fields, and my cu
 </div>
 
 # 🎖 Honors and Awards
-- *2023* Outstanding Intern of the Year, Baidu Research
-- *2016-2022* Model Student of Academic Records of Beijing Jiaotong University
-- *2018* National Contemporary uUndergraduate Mathematical Contest IN Modeling in China, First Prize in Beijing region 
+- *2023*, Outstanding Intern of the Year, Baidu Research
+- *2016-2022*, Model Student of Academic Records of Beijing Jiaotong University
+- *2018*, National Contemporary uUndergraduate Mathematical Contest IN Modeling in China, First Prize in Beijing region 
 
 # 📖 Educations
 - *2020.06 - 2023.10 (now)*, Master, School of Computer and Information Technology, Beijing Jiaotong University, Beijing.
