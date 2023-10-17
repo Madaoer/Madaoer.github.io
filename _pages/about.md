@@ -17,7 +17,7 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-I am currently a master student at Beijing Jiaotong University, major in Computer Science. I received B.S. in Computer Science from Beijing Jiaotong University in 2020. I am also a research intern at Cognitive Computing Lab, Baidu Research.
+I am currently a master student in School of Computer and Information Technology at Beijing Jiaotong University, luckily advised by Prof. Yi Liu. I received B.S. in Computer Science from Beijing Jiaotong University in 2020. I am also a research intern at Cognitive Computing Lab, Baidu Research, luckily advised by Dr. Zeke Xie.
 
 I am interested in the research on machine learning for neural fields, and my current research focuses on leveraging neural fields to enhance the quality and the robustness in autonomous driving simulations. Moreover, in the future, I pursue to extend neural fields in solving scientific problems.
 
