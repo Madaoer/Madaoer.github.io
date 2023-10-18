@@ -28,7 +28,7 @@ I am interested in the research on machine learning for neural fields, and my cu
 - *2016.09 - 2020.06*, Undergraduate, School of Computer and Information Technology, Beijing Jiaotong University, Beijing.
 
 # 💻 Internships
-- *2022.05 - 2023.10(now)*, Cognitive Computing Lab, [Baidu Research](http://research.baidu.com/).
+- *2022.05 - 2023.10(now)*, Research Intern, Cognitive Computing Lab, [Baidu Research](http://research.baidu.com/).
 - *2020.10 - 2022.01*, Visiting Student, [Han lab](https://cqb.pku.edu.cn/hanlab/), PKU.
 
 # 🔥 News
