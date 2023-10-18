@@ -23,10 +23,17 @@ I am interested in the research on machine learning for neural fields, and my cu
 
 **I am actively looking for a PhD position for Fall 2024.**
 
+# 📖 Educations
+- *2020.06 - 2023.10 (now)*, Master, School of Computer and Information Technology, Beijing Jiaotong University, Beijing.
+- *2016.09 - 2020.06*, Undergraduate, School of Computer and Information Technology, Beijing Jiaotong University, Beijing.
+
+# 💻 Internships
+- *2022.05 - 2023.10(now)*, Cognitive Computing Lab, [Baidu Research](http://research.baidu.com/).
+- *2020.10 - 2022.01*, Visiting Student, [Han lab](https://cqb.pku.edu.cn/hanlab/), PKU.
 
 # 🔥 News
 - *2023.08*: &nbsp;🎉 [SDFStdudio](https://github.com/autonomousvision/sdfstudio) support [S3IM](https://github.com/Madaoer/S3IM-Neural-Fields). 
-- *2023.08*: &nbsp;🔥 We release [S3IM](https://github.com/Madaoer/S3IM-Neural-Fields)(⭐️100+). 
+- *2023.08*: &nbsp;🔥 We release [S3IM](https://github.com/Madaoer/S3IM-Neural-Fields)(⭐️150+). 
 - *2022.07*: &nbsp;🎉 One paper [S3IM](https://arxiv.org/abs/2308.07032) is accepted by ICCV.
 
 # 📝 Publications 
@@ -36,7 +43,7 @@ I am interested in the research on machine learning for neural fields, and my cu
   
   [S3IM: Stochastic Structural SIMilarity and Its Unreasonable Effectiveness for Neural Fields](https://openaccess.thecvf.com/content/ICCV2023/papers/Xie_S3IM_Stochastic_Structural_SIMilarity_and_Its_Unreasonable_Effectiveness_for_Neural_ICCV_2023_paper.pdf)
   
-  **Xindi Yang**\*, Zeke Xie\*, Yujie Yang, Qi Sun, Yixiang Jiang, Haoran Wang, Yunfeng Cai, Mingming Sun
+  **Xindi Yang**\*, Zeke Xie\*, Yujie Yang, Qi Sun, Yixiang Jiang, Haoran Wang, Yunfeng Cai and Mingming Sun
   
   [**Project**](https://madaoer.github.io/s3im_nerf/) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
   - S3IM is a plug-and-play loss, effective and robust in various difficult tasks.
@@ -49,21 +56,27 @@ I am interested in the research on machine learning for neural fields, and my cu
   
   Neural Field Classifiers via Target Encoding and Classification Loss
   
-  **Xindi Yang**, Zeke Xie, Xiong Zhou, Boyu Liu, Buhua Liu, Yi Liu, Haoran Wang, YUNFENG CAI, Mingming Sun
+  **Xindi Yang**, Zeke Xie, Xiong Zhou, Boyu Liu, Buhua Liu, Yi Liu, Haoran Wang, YUNFENG CAI and Mingming Sun
   
    <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
   - Neural Field Classifiers via Target Encoding and Classification Loss can significantly outperform the standard regression-based neural field counterparts.
   </div>
 </div>
 
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICLR 2024 under review</div><img src='/images/paper3_fig_500x300.png' alt="sym" width="100%"></div></div>
+  <div class='paper-box-text' markdown="1">
+  
+  Coordinate-Wise Monotonic Transformations for PrivacyPreserving Facial Age Estimation
+  
+  Xinyu Yang, Runhan Li, **Xindi Yang**, Yong Zhou, Yi Liu and Jing-Dong J. Han
+  
+   <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
+  - We present an approach for facial data masking that preserves age-related features using coordinate-wise monotonic
+transformations
+  </div>
+</div>
+
 # 🎖 Honors and Awards
-- *2023*, Outstanding Intern of the Year, Baidu Research
+- *2023*, **Outstanding Intern** of the Year, Baidu Research
 - *2016-2022*, Model Student of Academic Records of Beijing Jiaotong University
-- *2018*, National Contemporary uUndergraduate Mathematical Contest IN Modeling in China, First Prize in Beijing region 
-
-# 📖 Educations
-- *2020.06 - 2023.10 (now)*, Master, School of Computer and Information Technology, Beijing Jiaotong University, Beijing.
-- *2016.09 - 2020.06*, Undergraduate, School of Computer and Information Technology, Beijing Jiaotong University, Beijing.
-
-# 💻 Internships
-- *2022.05 - 2023.10(now)*, [Baidu Research](http://research.baidu.com/), China.
+- *2018*, National Contemporary uUndergraduate Mathematical Contest IN Modeling in China, **First Prize** in Beijing region 
