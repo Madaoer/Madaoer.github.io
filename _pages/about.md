@@ -21,7 +21,7 @@ I am currently a master student in School of Computer and Information Technology
 
 I am interested in the research on machine learning for neural fields, and my current research focuses on leveraging neural fields to enhance the quality and the robustness in autonomous driving simulations.
 
-**I am actively looking for a PhD position for Fall 2024! Check out my [CV](https://madaoer.github.io/assets/cv_Xindi_Yang.pdf) here.**
+**I am actively looking for a PhD position for Fall 2024! Check out my [CV](https://madaoer.github.io/assets/Xindi_Yang_CV.pdf) here.**
 
 # 📖 Educations
 - *2020.06 - 2023.10 (now)*, Master, School of Computer and Information Technology, Beijing Jiaotong University, Beijing.
