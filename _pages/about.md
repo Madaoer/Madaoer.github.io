@@ -63,7 +63,7 @@ I am interested in the research on machine learning for neural fields, and my cu
   </div>
 </div>
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICLR 2024 under review</div><img src='/images/paper3_fig_500x300.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Science China Life Sciences under review</div><img src='/images/paper_img3_500x300.png' alt="sym" width="100%"></div></div>
   <div class='paper-box-text' markdown="1">
   
   Coordinate-Wise Monotonic Transformations for PrivacyPreserving Facial Age Estimation
