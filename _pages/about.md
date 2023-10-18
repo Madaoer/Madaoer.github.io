@@ -34,7 +34,7 @@ I am interested in the research on machine learning for neural fields, and my cu
 # 🔥 News
 - *2023.08*: &nbsp;🎉 [SDFStdudio](https://github.com/autonomousvision/sdfstudio) support [S3IM](https://github.com/Madaoer/S3IM-Neural-Fields). 
 - *2023.08*: &nbsp;🔥 We release [S3IM](https://github.com/Madaoer/S3IM-Neural-Fields)(⭐️150+). 
-- *2022.07*: &nbsp;🎉 One paper [S3IM](https://arxiv.org/abs/2308.07032) is accepted by ICCV.
+- *2023.07*: &nbsp;🎉 One paper [S3IM](https://arxiv.org/abs/2308.07032) is accepted by ICCV.
 
 # 📝 Publications 
 
