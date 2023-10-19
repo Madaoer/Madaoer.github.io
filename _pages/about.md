@@ -32,7 +32,7 @@ I am interested in the research on machine learning for neural fields, and my cu
 - *2020.10 - 2022.01*, Visiting Student, [Han lab](https://cqb.pku.edu.cn/hanlab/), PKU.
 
 # 🔥 News
-- *2023.08*: &nbsp;🎉 [SDFStdudio](https://github.com/autonomousvision/sdfstudio) support [S3IM](https://github.com/Madaoer/S3IM-Neural-Fields). 
+- *2023.08*: &nbsp;🎉 [SDFStdudio](https://github.com/autonomousvision/sdfstudio) has supported [S3IM](https://github.com/Madaoer/S3IM-Neural-Fields). 
 - *2023.08*: &nbsp;🔥 We release [S3IM](https://github.com/Madaoer/S3IM-Neural-Fields)(⭐️150+). 
 - *2023.07*: &nbsp;🎉 One paper [S3IM](https://arxiv.org/abs/2308.07032) is accepted by ICCV.
 
@@ -79,4 +79,4 @@ transformations
 # 🎖 Honors and Awards
 - *2023*, **Outstanding Intern** of the Year, Baidu Research
 - *2016-2022*, Model Student of Academic Records of Beijing Jiaotong University
-- *2018*, National Contemporary uUndergraduate Mathematical Contest IN Modeling in China, **First Prize** in Beijing region 
+- *2018*, National Contemporary Undergraduate Mathematical Contest IN Modeling in China, **First Prize** in Beijing region 
