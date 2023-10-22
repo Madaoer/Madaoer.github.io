@@ -24,8 +24,8 @@ I am interested in 3D vision and autonomous driving , and my current research fo
 **I am actively looking for a PhD position for Fall 2024! Check out my [CV](https://madaoer.github.io/assets/Xindi_Yang_CV.pdf) here.**
 
 # 📖 Educations
-- *2020.06 - 2023.10 (now)*, Master, School of Computer and Information Technology, Beijing Jiaotong University, Beijing.
-- *2016.09 - 2020.06*, Undergraduate, School of Computer and Information Technology, Beijing Jiaotong University, Beijing.
+- *2020.06 - 2023.10 (now)*, Master of Computer Science, School of Computer and Information Technology, Beijing Jiaotong University, Beijing.
+- *2016.09 - 2020.06*, Bachelor of Computer Science, School of Computer and Information Technology, Beijing Jiaotong University, Beijing.
 
 # 💻 Internships
 - *2022.05 - 2023.10(now)*, Research Intern, Cognitive Computing Lab, [Baidu Research](http://research.baidu.com/).
