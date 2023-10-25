@@ -43,7 +43,7 @@ I am interested in 3D vision and autonomous driving , and my current research fo
   
   [S3IM: Stochastic Structural SIMilarity and Its Unreasonable Effectiveness for Neural Fields](https://openaccess.thecvf.com/content/ICCV2023/papers/Xie_S3IM_Stochastic_Structural_SIMilarity_and_Its_Unreasonable_Effectiveness_for_Neural_ICCV_2023_paper.pdf)
   
-  Zeke Xie\*, **Xindi Yang**\*, Yujie Yang, Qi Sun, Yixiang Jiang, Haoran Wang, Yunfeng Cai and Mingming Sun
+  Zeke Xie\*, **Xindi Yang**\*, Yujie Yang, Qi Sun, Yixiang Jiang, Haoran Wang, Yunfeng Cai, Mingming Sun
   
   [**Project**](https://madaoer.github.io/s3im_nerf/) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
   - S3IM is a plug-and-play loss, effective and robust in various difficult tasks.
@@ -56,7 +56,7 @@ I am interested in 3D vision and autonomous driving , and my current research fo
   
   Neural Field Classifiers via Target Encoding and Classification Loss
   
-  **Xindi Yang**, Zeke Xie, Xiong Zhou, Boyu Liu, Buhua Liu, Yi Liu, Haoran Wang, YUNFENG CAI and Mingming Sun
+  **Xindi Yang**, Zeke Xie, Xiong Zhou, Boyu Liu, Buhua Liu, Yi Liu, Haoran Wang, Yunfeng Cai, Mingming Sun
   
    <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
   - Neural Field Classifiers via Target Encoding and Classification Loss can significantly outperform the standard regression-based neural field counterparts.
@@ -66,9 +66,9 @@ I am interested in 3D vision and autonomous driving , and my current research fo
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">Science China Life Sciences under review</div><img src='/images/paper_img3_500x300.png' alt="sym" width="100%"></div></div>
   <div class='paper-box-text' markdown="1">
   
-  Coordinate-Wise Monotonic Transformations for PrivacyPreserving Facial Age Estimation
+  Coordinate-Wise Monotonic Transformations for Privacy Preserving Facial Age Estimation
   
-  Xinyu Yang, Runhan Li, **Xindi Yang**, Yong Zhou, Yi Liu and Jing-Dong J. Han
+  Xinyu Yang, Runhan Li, **Xindi Yang**, Yong Zhou, Yi Liu, Jing-Dong J. Han
   
    <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
   - We present an approach for facial data masking that preserves age-related features using coordinate-wise monotonic
