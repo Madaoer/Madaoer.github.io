@@ -36,7 +36,7 @@ I am interested in 3D vision and autonomous driving , and my current research fo
 - *2023.08*: &nbsp;🔥 We release [S3IM](https://github.com/Madaoer/S3IM-Neural-Fields)(⭐️150+). 
 - *2023.07*: &nbsp;🎉 One paper [S3IM](https://arxiv.org/abs/2308.07032) is accepted by ICCV.
 
-# 📝 Publications & Manuscripts
+# 📝 Publications and Manuscripts
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICCV 2023</div><img src='/images/paper_img2_500x300.png' alt="sym" width="100%"></div></div>
   <div class='paper-box-text' markdown="1">
