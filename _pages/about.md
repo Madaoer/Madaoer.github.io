@@ -51,7 +51,7 @@ I am interested in 3D vision and autonomous driving , and my current research fo
   </div>
 </div>
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICLR 2024 under review(review **Top 20%**)</div><img src='/images/paper2_fig.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICLR 2024 under review(review Top 20%)</div><img src='/images/paper2_fig.png' alt="sym" width="100%"></div></div>
   <div class='paper-box-text' markdown="1">
   
   Neural Field Classifiers via Target Encoding and Classification Loss.
