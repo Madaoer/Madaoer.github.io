@@ -42,7 +42,7 @@ I am interested in 3D vision and autonomous driving , and my current research fo
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICLR 2024</div><img src='/images/paper2_fig.png' alt="sym" width="100%"></div></div>
   <div class='paper-box-text' markdown="1">
   
-  Neural Field Classifiers via Target Encoding and Classification Loss.
+  [Neural Field Classifiers via Target Encoding and Classification Loss.](https://openreview.net/pdf?id=9NqC72m31m)
   
   **Xindi Yang**, Zeke Xie, Xiong Zhou, Boyu Liu, Buhua Liu, Yi Liu, Haoran Wang, Yunfeng Cai, Mingming Sun.
   
@@ -54,7 +54,7 @@ I am interested in 3D vision and autonomous driving , and my current research fo
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICCV 2023</div><img src='/images/paper_img2_500x300.png' alt="sym" width="100%"></div></div>
   <div class='paper-box-text' markdown="1">
   
-  [S3IM: Stochastic Structural SIMilarity and Its Unreasonable Effectiveness for Neural Fields](https://openaccess.thecvf.com/content/ICCV2023/papers/Xie_S3IM_Stochastic_Structural_SIMilarity_and_Its_Unreasonable_Effectiveness_for_Neural_ICCV_2023_paper.pdf)
+  [S3IM: Stochastic Structural SIMilarity and Its Unreasonable Effectiveness for Neural Fields.](https://openaccess.thecvf.com/content/ICCV2023/papers/Xie_S3IM_Stochastic_Structural_SIMilarity_and_Its_Unreasonable_Effectiveness_for_Neural_ICCV_2023_paper.pdf)
   
   Zeke Xie\*, **Xindi Yang**\*, Yujie Yang, Qi Sun, Yixiang Jiang, Haoran Wang, Yunfeng Cai, Mingming Sun (\*equal contribution).
   
