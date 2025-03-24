@@ -1,0 +1,221 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-143354296-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-143354296-1');
+    </script>
+
+    <title>S3IM</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>S3IM</title>
+    <meta name="keywords" content="S3IM, NeRF, 3D reconstruct">
+    <meta name="description" content="Our work design a nonlocal multiplex training paradigm for NeRF and relevant neural field methods via a novel Stochastic Structural SIMilarity (S3IM) loss that processes multiple data points as a whole set instead of process multiple inputs independently. Our extensive experiments demonstrate the unreasonable effectiveness of S3IM in improving NeRF and neural surface representation for nearly free.">
+    <meta name="google-site-verification" content="zTn5k4uR8M5ulbD97RtehwXhTTfyIYD4zgdiiQsMn6Q" />
+    <meta name="msvalidate.01" content="3CC0A964D32EA3E8561E23E2DF370684" />
+    <meta property="og:title" content="S3IM">
+    <meta name="og:description" content="Our work design a nonlocal multiplex training paradigm for NeRF and relevant neural field methods via a novel Stochastic Structural SIMilarity (S3IM) loss that processes multiple data points as a whole set instead of process multiple inputs independently. Our extensive experiments demonstrate the unreasonable effectiveness of S3IM in improving NeRF and neural surface representation for nearly free.">
+    <meta property="og:image" content="https://madaoer.github.io/s3im_nerf/web_preview.png">
+    <meta property="og:image:secure_url" content="https://madaoer.github.io/s3im_nerf/web_preview.png">
+    <meta property="og:image:width" content="600">
+    <meta property="og:image:height" content="314">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://madaoer.github.io/s3im_nerf">
+    <meta property="og:site_name" content="DVGO">
+    <link rel="icon" href="icons/icon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://kit.fontawesome.com/e5a777658b.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container-lg">
+        <div class="row mb-2 mt-4" id="paper-title">
+            <h1 class="col-md-12 text-center">
+                S3IM
+            </h1>
+            <h3 class="col-md-12 text-center">
+                Stochastic Structural SIMilarity and Its Unreasonable Effectiveness for Neural Fields
+            </h3>
+            <h3 class="col-md-12 text-center">
+                <small>ICCV 2023 </small>
+            </h3>
+        </div>
+        <div class="row" id="authors">
+            <div class="mx-auto text-center" style="width:70%">
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item">
+                        Zeke Xie*
+                    </li>
+
+                    <li class="list-inline-item">
+                        Xindi Yang*
+                    </li>
+
+                    <li class="list-inline-item">
+                        Yujie Yang
+                    </li>
+                    <li class="list-inline-item">
+                        Qi Sun
+                    </li>
+                    <li class="list-inline-item">
+                        Yixiang Jiang
+                    </li>
+                    <li class="list-inline-item">
+                        Haoran Wang
+                    </li>
+                    <li class="list-inline-item">
+                        Yunfeng Cai
+                    </li>
+                    <li class="list-inline-item">
+                        Mingming Sun
+                    </li>
+                </ul>
+                <ul class="list-inline mb-0" id="institution">
+                    <li class="list-inline-item">
+                        *Denotes Equal Contribution
+                    </li>
+                </ul>
+                <ul class="list-inline mb-0" id="institution">
+                    <li class="list-inline-item">
+                        Baidu Research
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row mb-2" id="links">
+            <div class="mx-auto">
+                <ul class="nav">
+                    <li class="nav-item text-center">
+                        <a href="https://arxiv.org/abs/2308.07032" class="nav-link" title="Temp link">
+                            <i class="fa-solid fa-file-lines fa-3x"></i>
+                            <br>
+                            Paper
+                        </a>
+                    </li>
+                    <li class="nav-item text-center">
+                        <a href="https://github.com/Madaoer/S3IM-Neural-Fields" class="nav-link">
+                            <i class="fa-brands fa-github fa-3x"></i>
+                            <br>
+                            Code
+                        </a>
+                    </li>
+                    <li class="nav-item text-center">
+                        <a href="https://madaoer.github.io/s3im_nerf/assets/S3IM_ICCV2023_poster.pdf" class="nav-link">
+                            <i class="fa-solid fa-file-lines fa-3x"></i>
+                            <br>
+                            Poster
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row mb-3 pt-2">
+            <div class="col-md-8 mx-auto">
+                <h4 class="sec_title">Abstract</h4>
+                <p>
+                    Recently, Neural Radiance Field (NeRF) has shown great success in rendering novel-view images of a given scene by learning an implicit representation with only posed RGB images. NeRF and relevant neural field methods (e.g., neural surface representation) typically optimize a point-wise loss and make point-wise predictions, where one data point corresponds to one pixel. Unfortunately, this line of research failed to use the collective supervision of distant pixels, although it is known that pixels in an image or scene can provide rich structural information. To the best of our knowledge, we are the first to design a nonlocal multiplex training paradigm for NeRF and relevant neural field methods via a novel Stochastic Structural SIMilarity (S3IM) loss that processes multiple data points as a whole set instead of process multiple inputs independently. Our extensive experiments demonstrate the unreasonable effectiveness of S3IM in improving NeRF and neural surface representation for nearly free. The improvements of quality metrics can be particularly significant for those relatively difficult tasks: e.g., the test MSE loss unexpectedly drops by more than 90% for TensoRF and DVGO over eight novel view synthesis tasks; a 198% F-score gain and a 64% Chamfer L_1 distance reduction for NeuS over eight surface reconstruction tasks. Moreover, S3IM is consistently robust even with sparse inputs, corrupted images, and dynamic scenes.
+                </p>
+            </div>
+        </div>
+
+        <div class="row mb-3 pt-2">
+            <div class="col-md-8 mx-auto">
+                <h4 class="sec_title">DVGO RGB and depth results w/o and with S3IM in Tanks and Temple Truck sparse view</h4>
+                    <div style="display:flex; flex-direction: column; justify-content: center;align-items: center;">
+                        <video style="width:120%" class="fullwid-vid" autoplay loop muted controls>
+                            <source src="video/dvgo_sparse_truck_rgb.mp4" type="video/mp4">
+                        </video>
+                        <video style="width:120%" class="fullwid-vid" autoplay loop muted controls>
+                            <source src="video/dvgo_sparse_truck_depth.mp4" type="video/mp4">
+                        </video>
+                    </div>
+            </div>
+        </div>
+        <div style="text-align:center">
+            <p>RGB and depth rendering results in Sparse Truck.Left: Standard Training (baseline); Right: Multiplex Training via S3IM (ours).</p>
+        </div>
+
+        <div class="row mb-3 pt-2">
+            <div class="col-md-8 mx-auto" style="margin-bottom:-5px">
+                <h4 class="sec_title">TensoRF RGB and depth results w/o and with S3IM in Replica Dataset</h4>
+            </div>
+        </div>
+        <div>
+            <div style="display:flex; flex-direction: column; justify-content: center;align-items: center;">
+                <video style="width:80%" class="fullwid-vid" autoplay loop muted controls>
+                    <source src="video/tensorf_replica_scan1_rgb.mp4" type="video/mp4">
+                </video>
+                <video style="width:80%"  class="fullwid-vid" autoplay loop muted controls>
+                    <source src="video/tensorf_replica_scan1_depth.mp4" type="video/mp4">
+                </video>
+                <div>
+                    <p>RGB and depth rendering results in Replica scan1.Left: Standard Training (baseline); Right: Multiplex Training via S3IM (ours).</p>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3 pt-2">
+            <div class="col-md-8 mx-auto">
+                <h4 class="sec_title">More video demos will be released soon</h4>
+            </div>
+        </div>
+        <div class="row mb-4" id="my_bibtex">
+            <div class="col-md-8 mx-auto">
+                <h4 class="sec_title">Citation</h4>
+                <pre><code style="font-size: 0.8em;">@inproceedings{xie2023s3im,
+  title = {S3IM: Stochastic Structural SIMilarity and Its Unreasonable Effectiveness for Neural Fields},
+  author = {Xie, Zeke and Yang, Xindi and Yang, Yujie and Sun, Qi and Jiang, Yixiang and Wang, Haoran and Cai, Yunfeng and Sun, Mingming},
+  booktitle = {International Conference on Computer Vision},
+  year = {2023}
+}</code></pre>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-8 mx-auto">
+                <h4 class="sec_title">Acknowledgements</h4>
+                <p class="text-justify">
+                    This website is in part based on a template of <a href="http://mgharbi.com/">Micha&euml;l Gharbi</a>.
+                </p>
+            </div>
+        </div>
+    </div> <!-- container -->
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        // Download video only when active (speedup website loading & network traffic)
+        $(".carousel").on('slide.bs.carousel', function(ev) {
+            let slides = $(this).find('.carousel-item');
+            let vid = slides[ev.to].querySelectorAll('video')[0];
+            let isPlaying = vid.currentTime > 0 && vid.readyState > 2;
+            if(!isPlaying) {
+                vid.play();
+            }
+        });
+
+        $(window).on('ready load resize', function() {
+            let carousel_width = $(".carousel").width();
+            let carousel_height = 0.7619047619047619 * carousel_width;
+            // Math.max.apply(null, $(".carousel video").map(function() {
+            //     let h = $(this)[0].videoHeight;
+            //     let w = $(this)[0].videoWidth;
+            //     return h * carousel_width / w;
+            // }).get());
+            $(".carousel video").height(carousel_height);
+        });
+    </script>
+</body>
+
+</html>
