@@ -21,14 +21,13 @@ I am currently a graduate student in School of Computer and Information Technolo
 
 I am interested in 3D vision and autonomous driving , and my current research focuses on leveraging neural fields to enhance the quality and the robustness in autonomous driving simulations.
 
-**I am actively looking for a PhD position for Fall 2024! Check out my [CV](https://madaoer.github.io/assets/Xindi_Yang_CV.pdf) here.**
 
 # 📖 Educations
 - *2020.06 - 2024.06(expected)*, Master of Computer Science, School of Computer and Information Technology, Beijing Jiaotong University, Beijing.
 - *2016.09 - 2020.06*, Bachelor of Computer Science, School of Computer and Information Technology, Beijing Jiaotong University, Beijing.
 
 # 💻 Internships
-- *2022.05 - 2024.01(now)*, Research Intern, Cognitive Computing Lab, [Baidu Research](http://research.baidu.com/).
+- *2022.05 - 2024.06*, Research Intern, Cognitive Computing Lab, [Baidu Research](http://research.baidu.com/).
 - *2020.10 - 2022.01*, Visiting Student, [Han lab](https://cqb.pku.edu.cn/hanlab/), PKU.
 
 # 🔥 News
