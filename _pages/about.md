@@ -17,18 +17,19 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-I am currently a graduate student in School of Computer and Information Technology at Beijing Jiaotong University, luckily advised by Prof. Yi Liu. I received B.S. in Computer Science from Beijing Jiaotong University in 2020. I am also a research intern at Cognitive Computing Lab, Baidu Research, luckily advised by Dr. Zeke Xie.
+I am currently a PhD student in Department of Data Science and AI at Monash University, luckily advised by Prof. [Tien-Tsin Wong](https://ttwong12.github.io/) and Prof. [Jianfei Cai](https://jianfei-cai.github.io/). I received B.S. and M.Phil. in Computer Science from Beijing Jiaotong University.
 
-I am interested in 3D vision and autonomous driving , and my current research focuses on leveraging neural fields to enhance the quality and the robustness in autonomous driving simulations.
+I am interested in Video/3D generation and World Model.
 
 
 # 📖 Educations
-- *2020.06 - 2024.06(expected)*, Master of Computer Science, School of Computer and Information Technology, Beijing Jiaotong University, Beijing.
+- *2024.11 - now*, Doctor of Philosophy, Department of Data Science and AI, Monash University, Melbourne.
+- *2020.06 - 2024.06*, Master of Computer Science, School of Computer and Information Technology, Beijing Jiaotong University, Beijing.
 - *2016.09 - 2020.06*, Bachelor of Computer Science, School of Computer and Information Technology, Beijing Jiaotong University, Beijing.
 
-# 💻 Internships
+<!-- # 💻 Internships
 - *2022.05 - 2024.06*, Research Intern, Cognitive Computing Lab, [Baidu Research](http://research.baidu.com/).
-- *2020.10 - 2022.01*, Visiting Student, [Han lab](https://cqb.pku.edu.cn/hanlab/), PKU.
+- *2020.10 - 2022.01*, Visiting Student, [Han lab](https://cqb.pku.edu.cn/hanlab/), PKU. -->
 
 # 🔥 News
 - *2024.01*: &nbsp;🎉 One paper [Neural Field Classifier](https://openreview.net/pdf?id=9NqC72m31m) is accepted by ICLR 2024.
