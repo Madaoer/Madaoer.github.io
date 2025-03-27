@@ -7,7 +7,7 @@
 
 # Site Settings
 title                    : "Xindi Yang"
-description              : "Research intern in Cognitive Computing Lab, Baidu Research. Focusing on neural fields and autonomous driving."
+description              : "PhD Student at Monash University"
 repository               : "Madaoer/Madaoer.github.io"
 google_scholar_stats_use_cdn : true
 
@@ -23,12 +23,12 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 author:
   name             : "Xindi Yang"
   avatar           : "images/portrait.jpg"
-  bio              : "Beijing Jiaotong University "
-  location         : "Beijing, China"
+  bio              : "Monash University "
+  location         : "Melbourne, Australia"
   employer         :
   pubmed           : 
   googlescholar    : 
-  email            : "yangxindi@bjtu.edu.cn"
+  email            : "xindi.yang@monash.edu"
   researchgate     :  # e.g., "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
