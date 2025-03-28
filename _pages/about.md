@@ -81,3 +81,7 @@ transformations.
 - *2023*, **Outstanding Intern** of the Year, Baidu Research
 - *2016-2022*, Model Student of Academic Records of Beijing Jiaotong University
 - *2018*, National Contemporary Undergraduate Mathematical Contest IN Modeling in China, **First Prize** in Beijing region 
+
+# 📝 Academic Service
+- Journal Review: IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI), IEEE Transactions on Visualization and Computer Graphics (TVCG)
+- Conference Review: ICLR
