@@ -1,416 +1,374 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Towards Physically Plausible Video Generation via VLM Plannning</title>
-<link href="style.css" rel="stylesheet" type="text/css">
+<head>
 
-<link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-      rel="stylesheet">
-      <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"> -->
-<link rel="stylesheet" href="./static/css/bulma.min.css">
-<link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-<link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-<link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-<link rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-<link rel="stylesheet" href="./static/css/index.css">
-<link rel="icon" href="./static/apple_tree.svg">
+<style>
+  .custom_carousel-container {
+    position: relative;
+    width: 900px; /* 根据实际视频宽度调整 */
+    overflow: hidden;
+    margin: 0 auto;
+  }
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script defer src="./static/js/fontawesome.all.min.js"></script>
-<script src="./static/js/bulma-carousel.min.js"></script>
-<script src="./static/js/bulma-slider.min.js"></script>
-<script src="./static/js/index.js"></script>
+  .custom_carousel-videos {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+
+  .custom_carousel-videos video {
+    width: 900px; /* 根据实际视频宽度调整 */
+    height: auto;
+    flex-shrink: 0;
+  }
+
+  .custom_carousel-dots {
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .custom_dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #bbb;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+  }
+
+  .custom_dot.custom_active {
+    background-color: #717171;
+  }
+
+  .custom_slider-navigation-previous,
+  .custom_slider-navigation-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .custom_slider-navigation-previous {
+    left: 10px;
+  }
+
+  .custom_slider-navigation-next {
+    right: 10px;
+  }
+</style>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Towards Physically Plausible Video Generation via VLM Planning</title>
+  <link href="style.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/apple_tree.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
 </head>
 
+
+
 <body>
-	<button style="position: fixed;right: 15px;top:  50%;height: 100px;width: 140px; font-size: 20px;" type="button"><a href="#top">Back to top</a></button> 
-<div class="page-container">
-  <!-- <h1 align="center">DynamiCrafter:<br>Animating Open-domain Images with Video Diffusion Priors</h1> -->
-  
-  
-  <section class="hero">
-    <div class="hero-body">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Towards Physically Plausible Video Generation via VLM Plannning</h1>
-            <div class="is-size-5 publication-authors">
-              <span class="author-block">
-                <a href="https://madaoer.github.io/">Xindi Yang</a><sup>1*</sup>,</span>
-              <span class="author-block">
-                <a href="https://libaolu312.github.io/">Baolu Li</a><sup>2*</sup>,</span>
-              <span class="author-block">
-                <a href="#">Yiming Zhang</a><sup>2</sup>,</span>
-              <span class="author-block">
-                <a href="https://yinzhenfei.github.io/">Zhenfei Yin</a><sup>4, 5&#9993;</sup>,</span>
-              <span class="author-block">
-                <a href="http://leibai.site/">Lei Bai</a><sup>3&#9993;</sup>,</span>
-              <span class="author-block">
-                <a href="https://charliememory.github.io/">Liqian Ma</a><sup>6</sup>,</span>
-              <span class="author-block">
-                <a href="https://www.sydney.edu.au/engineering/about/our-people/academic-staff/zhiyong-wang.html">Zhiyong Wang</a><sup>5</sup>,</span>
-                <br>
-              <span class="author-block">
-                <a href="https://jianfei-cai.github.io/">Jianfei Cai</a><sup>1</sup>,</span>
-              <span class="author-block">
-                <a href="https://ttwong12.github.io/myself.html">Tien-Tsin Wong</a><sup>1</sup>,</span>
-              <span class="author-block">
-                <a href="https://scholar.google.com/citations?user=D3nE0agAAAAJ&hl=zh-CN&oi=sra">Huchuan Lu</a><sup>2</sup>,</span>
-              <span class="author-block">
-                <a href="https://stephenjia.github.io/">Xu Jia</a><sup>2&#9993;</sup></span>
-            </div>
-  
-            <div class="is-size-5 publication-authors">
-              <span class="author-block"><sup>1</sup>Monash University,</span>&nbsp;
-              <span class="author-block"><sup>2</sup>Dalian Universiy of Technology,</span>&nbsp;
-              <span class="author-block"><sup>3</sup>Shanghai Artificial Intelligence Laboratory</span>
-              <span class="author-block"><sup>4</sup>Oxford University,</span>&nbsp;
-              <span class="author-block"><sup>5</sup>The University of Syndney,</span>&nbsp;
-              <span class="author-block"><sup>6</sup>ZMO AI</span>
-            </div>
-            <div class="is-size-5 publication-authors">
-              <span class="author-block"><sup>*&#160;</sup>Equal Contribution&#160;&#160;</span>
-              <span class="author-block"><sup>&#9993;&#160;</sup>Corresponding Author&#160;&#160;</span>
-              <!-- <span class="author-block"><sup>&dagger;&#160;</sup>Project Leader&#160;&#160;</span> -->
-          </div>
-  
+  <button style="position: fixed; right: 15px; top: 50%; height: 100px; width: 140px; font-size: 20px;" type="button">
+    <a href="#top">Back to top</a>
+  </button>
+
+  <div class="page-container">
+    <!-- 原有内容 -->
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
             <div class="column has-text-centered">
-              <div class="publication-links">
-                <!-- PDF Link. -->
-                <!-- <span class="link-block">
-                  <a href=""
-                     class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                        <i class="fas fa-file-pdf"></i>
-                    </span>
-                    <span>Paper</span>
-                  </a>
-                </span> -->
-                <span class="link-block">
-                  <a href="https://arxiv.org/abs/2503.23368"
-                     class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                        <i class="ai ai-arxiv"></i>
-                    </span>
-                    <span>arXiv</span>
-                  </a>
-                </span>
-                <!-- Code Link. -->
-                <span class="link-block">
-                  <a href="#"
-                     class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                        <i class="fab fa-github"></i>
-                    </span>
-                    <span>Coming Soon</span>
-                    </a>
-                </span>
-                <!-- Dataset Link. -->
-                <!-- Video Link. -->
-              
-              
+              <h1 class="title is-1 publication-title">Towards Physically Plausible Video Generation via VLM Planning</h1>
+              <div class="is-size-5 publication-authors">
+                <span class="author-block">
+                  <a href="https://madaoer.github.io/">Xindi Yang</a><sup>1*</sup>,</span>
+                <span class="author-block">
+                  <a href="https://libaolu312.github.io/">Baolu Li</a><sup>2*</sup>,</span>
+                <span class="author-block">
+                  <a href="#">Yiming Zhang</a><sup>2</sup>,</span>
+                <span class="author-block">
+                  <a href="https://yinzhenfei.github.io/">Zhenfei Yin</a><sup>4, 5&#9993;</sup>,</span>
+                <span class="author-block">
+                  <a href="http://leibai.site/">Lei Bai</a><sup>3&#9993;</sup>,</span>
+                <span class="author-block">
+                  <a href="https://charliememory.github.io/">Liqian Ma</a><sup>6</sup>,</span>
+                <span class="author-block">
+                  <a href="https://www.sydney.edu.au/engineering/about/our-people/academic-staff/zhiyong-wang.html">Zhiyong Wang</a><sup>5</sup>,</span>
+                  <br>
+                <span class="author-block">
+                  <a href="https://jianfei-cai.github.io/">Jianfei Cai</a><sup>1</sup>,</span>
+                <span class="author-block">
+                  <a href="https://ttwong12.github.io/myself.html">Tien-Tsin Wong</a><sup>1</sup>,</span>
+                <span class="author-block">
+                  <a href="https://scholar.google.com/citations?user=D3nE0agAAAAJ&hl=zh-CN&oi=sra">Huchuan Lu</a><sup>2</sup>,</span>
+                <span class="author-block">
+                  <a href="https://stephenjia.github.io/">Xu Jia</a><sup>2&#9993;</sup></span>
               </div>
-              <div class="publication-links">
-              
 
-                <span class="link-block">
-                  <a href="#our_results_container"
-                     class="external-link button is-normal is-rounded">
-                    <span>Showcases</span>
-                  </a>
-                </span>
-                <span class="link-block">
-                  <a href="#comparison_with_baseline_container"
-                     class="external-link button is-normal is-rounded">
-                    <span>Comparisons</span>
-                  </a>
-                </span>
-                <span class="link-block">
-                  <a href="#overview_container"
-                     class="external-link button is-normal is-rounded">
-                    <span>OverView</span>
-                  </a>
-                </span>    
-                <span class="link-block">
-                  <a href="#abstract_container"
-                     class="external-link button is-normal is-rounded">
-                    <span>Abstract</span>
-                  </a>
-                </span>          
+              <div class="is-size-5 publication-authors">
+                <span class="author-block"><sup>1</sup>Monash University,</span>&nbsp;
+                <span class="author-block"><sup>2</sup>Dalian University of Technology,</span>&nbsp;
+                <span class="author-block"><sup>3</sup>Shanghai Artificial Intelligence Laboratory</span>
+                <span class="author-block"><sup>4</sup>Oxford University,</span>&nbsp;
+                <span class="author-block"><sup>5</sup>The University of Sydney,</span>&nbsp;
+                <span class="author-block"><sup>6</sup>ZMO AI</span>
+              </div>
+              <div class="is-size-5 publication-authors">
+                <span class="author-block"><sup>*&#160;</sup>Equal Contribution&#160;&#160;</span>
+                <span class="author-block"><sup>&#9993;&#160;</sup>Corresponding Author&#160;&#160;</span>
+              </div>
+
+              <div class="column has-text-centered">
+                <div class="publication-links">
+                  <span class="link-block">
+                    <a href="https://arxiv.org/abs/2503.23368"
+                       class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                          <i class="ai ai-arxiv"></i>
+                      </span>
+                      <span>arXiv</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a href="#"
+                       class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                          <i class="fab fa-github"></i>
+                      </span>
+                      <span>Coming Soon</span>
+                      </a>
+                  </span>
+                </div>
+                <div class="publication-links">
+                  <span class="link-block">
+                    <a href="#our_results_container"
+                       class="external-link button is-normal is-rounded">
+                      <span>Showcases</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a href="#comparison_with_baseline_container"
+                       class="external-link button is-normal is-rounded">
+                      <span>Comparisons</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a href="#overview_container"
+                       class="external-link button is-normal is-rounded">
+                      <span>Overview</span>
+                    </a>
+                  </span>    
+                  <span class="link-block">
+                    <a href="#abstract_container"
+                       class="external-link button is-normal is-rounded">
+                      <span>Abstract</span>
+                    </a>
+                  </span>          
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </section>
+
+    <h2 id="our_results_container" align="left">Showcases produced by our method</h2>
+  <div style="width: 1000px;"  class="custom_carousel-container" align="center">
+    <div class="custom_carousel-videos">
+    <div>
+      <video style="width: 1000px;"  src="Showcases/1.mp4" controls muted></video>
+      <div align="left" style="font-size:20px;">Prompt: A wooden ball collides with an iron cube.</div>
     </div>
-  </section>
-	
-  <!-- <p align="center">&nbsp;</p> -->
-	<a href="#top"></a>
-
-  <!--Video-->
-
-
-
-    <!------------------ BEGIN SECTION ------------------>
-    <!-- <p>&nbsp;</p> -->
-    <!-- <hr> -->
-        
-    <h2 style="margin-top: 0em;" id="our_results_container" align="left"><a name="image-results" id="image-results"></a>Showcases produced by our method</h2>
-    
-    <div id="results-carousel" class="carousel results-carousel" align="center" style="height: 850px;">
-      <div>
-
-        <div class="item item-video3">
-          <video style="width:900px;" src="Showcases/1.mp4" autoplay loop controls muted></video>
-        </div>
-        <div align="left" style="font-size:20px;">Prompt: A wooden ball collides with an iron cube.</div>
-      </div>
-      <div>
-        <div class="item item-video3">
-          <video style="width:900px;" src="Showcases/2.mp4" autoplay loop controls muted></video>
-        </div>
-        <div align="left" style="font-size:20px;">Prompt: A rubber ball is initially suspended in midair, then falls to the ground and bounces until it comes to a stop.</div>
-      </div>
-      <div>
-
-        <div class="item item-video3">
-          <video style="width:900px;" src="Showcases/3.mp4" autoplay loop controls muted></video>
-        </div>
-        <div align="left" style="font-size:20px;">Prompt: Pouring water into a clear glass.</div>
-      </div>
-      <div>
-        <div class="item item-video3">
-          <video style="width:900px;" src="Showcases/4.mp4" autoplay loop controls muted></video>
-        </div>
-        <div align="left" style="font-size:20px;">Prompt: A clear acrylic sheet placed on a wooden table with a small dollop of red paint. A rotating paintbrush attached to a rotating platform rotates clockwise and goes through the paint. Static shot with no camera movement.</div>
-      </div>
-
-      <div>
-        <div class="item item-video3">
-          <video style="width:900px;" src="Showcases/5.mp4" autoplay loop controls muted></video>
-        </div>
-        <div align="left" style="font-size:20px;">Prompt: A tennis ball attached to a magnet and string is hanging in front of a mirror and creating an illusion of two tennis balls. The string lowers the ball slowly. Static shot with no camera movement.</div>
-      </div>
-      <div>
-        <div class="item item-video3">
-          <video style="width:900px;" src="Showcases/6.mp4" autoplay loop controls muted></video>
-        </div>
-        <div align="left" style="font-size:20px;">Prompt: A timelapse of a water-filled soft towel being forcefully squeezed by hand, with the pressure intensifying rapidly over time.</div>
-      </div>
-      <div>
-        <div class="item item-video3">
-          <video style="width:900px;" src="Showcases/7.mp4" autoplay loop controls muted></video>
-        </div>
-        <div align="left" style="font-size:20px;">Prompt: A timelapse captures the reaction as concentrated sulfuric acid is poured onto a sponge.</div>
-      </div>
-      <div>
-        <div class="item item-video3">
-          <video style="width:900px;" src="Showcases/8.mp4" autoplay loop controls muted></video>
-        </div>
-        <div align="left" style="font-size:20px;margin-top:20px;">Prompt: On the left side of the desk, there is a turntable with a yellow mug on it. On the right side, a mirror clearly reflects the mug's image, while the turntable rotates clockwise.</div>
-      </div>
+    <div>
+      <video style="width: 1000px;"  src="Showcases/2.mp4" controls muted></video>
+      <div align="left" style="font-size:20px;">Prompt: A rubber ball is initially suspended in midair, then falls to the ground and bounces until it comes to a stop.</div>
     </div>
-    <p>&nbsp;</p>
-
-    <!------------------ END   SECTION ------------------>   
-
-    <p>&nbsp;</p>
-    <hr>
-        
-    <h2 id="comparison_with_baseline_container" align="left"><a name="image-results" id="image-results"></a>Comparisons with baseline methods</h2>
-    <p align="left">
-      We compare our method against existing image-to-video diffusion models across different physical phenomena (e.g., Solid Mechanics, Fluid Dynamics, and Material ...).
-    </p>
-
-
-    <div id="results-carousel" class="carousel results-carousel" align="center">
-      <div class="item item-video3" style="height: 550px;">
-        <!-- <img id="video11" src="video_comparison/01.gif" alt="GIF 1" class="gif"> -->
-        <video width="900px" src="comparison/7.mp4" autoplay loop controls muted></video>
-      </div>
-      <div class="item item-video2" style="height: 550px;">
-        <!-- <img id="video11" src="video_comparison/02.gif" alt="GIF 1" class="gif"> -->
-        <video width="900px" src="comparison/2.mp4" autoplay loop controls muted></video>
-      </div>
-      <div class="item item-video3" style="height: 550px;">
-        <!-- <img id="video11" src="video_comparison/03.gif" alt="GIF 1" class="gif"> -->
-        <video width="900px" src="comparison/6.mp4" autoplay loop controls muted></video>
-      </div>
-      <div class="item item-video1" style="height: 550px;">
-        <!-- <img id="video11" src="video_comparison/04.gif" alt="GIF 1" class="gif"> -->
-        <video width="900px" src="comparison/5.mp4" autoplay loop controls muted></video>
-      </div>
-      <div class="item item-video2" style="height: 550px;">
-        <!-- <img id="video11" src="video_comparison/05.gif" alt="GIF 1" class="gif"> -->
-        <video width="900px" src="comparison/8.mp4" autoplay loop controls muted></video>
-      </div>
-      <div class="item item-video3" style="height: 550px;">
-        <!-- <img id="video11" src="video_comparison/06.gif" alt="GIF 1" class="gif"> -->
-        <video width="900px" src="comparison/1.mp4" autoplay loop controls muted></video>
-      </div>
-      <div class="item item-video1" style="height: 550px;">
-        <!-- <img id="video11" src="video_comparison/07.gif" alt="GIF 1" class="gif"> -->
-        <video width="900px" src="comparison/9.mp4" autoplay loop controls muted></video>
-      </div>
-      <div class="item item-video2" style="height: 550px;">
-        <!-- <img id="video11" src="video_comparison/08.gif" alt="GIF 1" class="gif"> -->
-        <video width="900px" src="comparison/11.mp4" autoplay loop controls muted></video>
-      </div>
-      <div class="item item-video3" style="height: 550px;">
-        <!-- <img id="video11" src="video_comparison/09.gif" alt="GIF 1" class="gif"> -->
-        <video width="900px" src="comparison/10.mp4" autoplay loop controls muted></video>
-      </div>
-      <div class="item item-video3" style="height: 550px;">
-        <!-- <img id="video11" src="video_comparison/10.gif" alt="GIF 1" class="gif"> -->
-        <video width="900px" src="comparison/4.mp4" autoplay loop controls muted></video>
-      </div>
-      <div class="item item-video3" style="height: 550px;">
-        <!-- <img id="video11" src="video_comparison/11.gif" alt="GIF 1" class="gif"> -->
-        <video width="900px" src="comparison/3.mp4" autoplay loop controls muted></video>
-      </div>
-      <div class="item item-video3" style="height: 550px;">
-        <!-- <img id="video11" src="video_comparison/12.gif" alt="GIF 1" class="gif"> -->
-        <video width="900px" src="comparison/12.mp4" autoplay loop controls muted></video>
-      </div>
+    <div>
+      <video style="width: 1000px;"  src="Showcases/3.mp4" controls muted></video>
+      <div align="left" style="font-size:20px;">Prompt: Pouring water into a clear glass.</div>
     </div>
-    <!------------------ END   SECTION ------------------>    
-
-
-    <!------------------ BEGIN SECTION ------------------>
-    <p>&nbsp;</p>
-    <hr>
-        
-    <h2 id="overview_container" align="left"><a name="image-results" id="image-results"></a>OverView</h2>
-    <p align="left">
-      Our pipeline consists of two stages. In the first stage, the VLM generates a coarse-grained, physically plausible motion trajectory based on the provided input conditions. In the second stage, we synthesize a fake motion video using the predicted trajectory. We then extract the optical flow from this video and convert it into structured noise. These conditions are fed into an image-to-video diffusion model, and ultimately generates a physically plausible video.
-    </p>
-    <div align="center">
-      <table  width="800px" align="center">
-        <tbody>
-          <tr>
-            <td>
-              <!-- <video width="300" src="Pipeline/bbox_video.mp4" type="video/mp4" autoplay loop controls muted/> -->
-              <img width="900px" src="Pipeline/overview.gif"/>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <div>
+      <video style="width: 1000px;"  src="Showcases/4.mp4" controls muted></video>
+      <div align="left" style="font-size:20px;">Prompt: A clear acrylic sheet placed on a wooden table with a small dollop of red paint. A rotating paintbrush attached to a rotating platform rotates clockwise and goes through the paint. Static shot with no camera movement.</div>
     </div>
+    <div>
+      <video style="width: 1000px;"  src="Showcases/5.mp4" controls muted></video>
+      <div align="left" style="font-size:20px;">Prompt: A tennis ball attached to a magnet and string is hanging in front of a mirror and creating an illusion of two tennis balls. The string lowers the ball slowly. Static shot with no camera movement.</div>
+    </div>
+    <div>
+      <video style="width: 1000px;"  src="Showcases/6.mp4" controls muted></video>
+      <div align="left" style="font-size:20px;">Prompt: A timelapse of a water-filled soft towel being forcefully squeezed by hand, with the pressure intensifying rapidly over time.</div>
+    </div>
+    <div>
+      <video style="width: 1000px;"  src="Showcases/7.mp4" controls muted></video>
+      <div align="left" style="font-size:20px;">Prompt: A timelapse captures the reaction as concentrated sulfuric acid is poured onto a sponge.</div>
+    </div>
+    <div>
+      <video style="width: 1000px;"  src="Showcases/8.mp4" controls muted></video>
+      <div align="left" style="font-size:20px;">Prompt: On the left side of the desk, there is a turntable with a yellow mug on it. On the right side, a mirror clearly reflects the mug's image, while the turntable rotates clockwise.</div>
+    </div>
+    </div>
+    <div class="custom_carousel-dots"></div>
+    <div class="custom_slider-navigation-previous">&#9664;</div>
+    <div class="custom_slider-navigation-next">&#9654;</div>
+  </div>
+  
+  <p>&nbsp;</p>
+  <hr>
 
-    <p>&nbsp;</p>
-    <hr>
+  <h2 id="comparison_with_baseline_container" align="left">Comparisons with baseline methods</h2>
+  <div style="width: 1200px;" class="custom_carousel-container" align="center">
+    <div class="custom_carousel-videos">
+      <video style="width: 1200px;" src="comparison/7.mp4" controls muted></video>
+      <video style="width: 1200px;" src="comparison/2.mp4" controls muted></video>
+      <video style="width: 1200px;" src="comparison/6.mp4" controls muted></video>
+      <video style="width: 1200px;" src="comparison/5.mp4" controls muted></video>
+      <video style="width: 1200px;" src="comparison/8.mp4" controls muted></video>
+      <video style="width: 1200px;" src="comparison/1.mp4" controls muted></video>
+      <video style="width: 1200px;" src="comparison/9.mp4" controls muted></video>
+      <video style="width: 1200px;" src="comparison/11.mp4" controls muted></video>
+      <video style="width: 1200px;" src="comparison/10.mp4" controls muted></video>
+      <video style="width: 1200px;" src="comparison/4.mp4" controls muted></video>
+      <video style="width: 1200px;" src="comparison/3.mp4" controls muted></video>
+      <video style="width: 1200px;" src="comparison/12.mp4" controls muted></video>
+    </div>
+    <div class="custom_carousel-dots"></div>
+    <div class="custom_slider-navigation-previous">&#9664;</div>
+    <div class="custom_slider-navigation-next">&#9654;</div>
+  </div>
 
-    <h2 id="abstract_container" align="left"><a name="image-results" id="image-results"></a>Abstract</h2>
-    <p align="left">
-      Video diffusion models (VDMs) have advanced significantly in recent years, enabling the generation of highly realistic videos and drawing the attention of the community in their potential as world simulators. However, despite their capabilities, VDMs often fail to produce physically plausible videos due to an inherent lack of understanding of physics, resulting in incorrect dynamics and event sequences. To address this limitation, we propose a novel two-stage image-to-video generation framework that explicitly incorporates physics.  In the first stage, we employ a Vision Language Model (VLM) as a coarse-grained motion planner, integrating chain-of-thought and physics-aware reasoning to predict a rough motion trajectories/changes that approximate real-world physical dynamics while ensuring the inter-frame consistency. In the second stage, we use the predicted motion trajectories/changes to guide the video generation of a VDM. As the predicted motion trajectories/changes are rough,  noise is added during inference to provide freedom to the VDM in generating motion with more fine details. Extensive experimental results demonstrate that our framework can produce physically plausible motion, and comparative evaluations highlight the notable superiority of our approach over existing methods.
-    </p>
-    <!------------------ END   SECTION ------------------> 
+  <p>&nbsp;</p>
+  <hr>
+      
+  <h2 id="overview_container" align="left"><a name="image-results" id="image-results"></a>OverView</h2>
+  <p align="left">
+    Our pipeline consists of two stages. In the first stage, the VLM generates a coarse-grained, physically plausible motion trajectory based on the provided input conditions. In the second stage, we synthesize a fake motion video using the predicted trajectory. We then extract the optical flow from this video and convert it into structured noise. These conditions are fed into an image-to-video diffusion model, and ultimately generates a physically plausible video.
+  </p>
+  <div align="center">
+    <table  width="800px" align="center">
+      <tbody>
+        <tr>
+          <td>
+            <!-- <video width="300" src="Pipeline/bbox_video.mp4" type="video/mp4" autoplay loop controls muted/> -->
+            <img width="900px" src="Pipeline/overview.gif"/>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
+  <p>&nbsp;</p>
+  <hr>
 
-
-
+  <h2 id="abstract_container" align="left"><a name="image-results" id="image-results"></a>Abstract</h2>
+  <p align="left">
+    Video diffusion models (VDMs) have advanced significantly in recent years, enabling the generation of highly realistic videos and drawing the attention of the community in their potential as world simulators. However, despite their capabilities, VDMs often fail to produce physically plausible videos due to an inherent lack of understanding of physics, resulting in incorrect dynamics and event sequences. To address this limitation, we propose a novel two-stage image-to-video generation framework that explicitly incorporates physics.  In the first stage, we employ a Vision Language Model (VLM) as a coarse-grained motion planner, integrating chain-of-thought and physics-aware reasoning to predict a rough motion trajectories/changes that approximate real-world physical dynamics while ensuring the inter-frame consistency. In the second stage, we use the predicted motion trajectories/changes to guide the video generation of a VDM. As the predicted motion trajectories/changes are rough,  noise is added during inference to provide freedom to the VDM in generating motion with more fine details. Extensive experimental results demonstrate that our framework can produce physically plausible motion, and comparative evaluations highlight the notable superiority of our approach over existing methods.
+  </p>
 
 </div>
 
 
-<script>
-  const videoContainer = document.querySelector('.video-container');
-  const video = document.querySelector('video');
-  const hoverImage = document.querySelector('.hover-image');
-  const caption = document.querySelector('.caption');
-
-  videoContainer.addEventListener('mouseenter', () => {
-      video.pause();
-      hoverImage.style.display = 'block';
-      caption.style.display = 'block';
-  });
-
-  videoContainer.addEventListener('mouseleave', () => {
-      video.play();
-      hoverImage.style.display = 'none';
-      caption.style.display = 'none';
-  });
-
-  // for nerfies template
-  window.dataLayer = window.dataLayer || [];
-
-  function gtag() {
-    dataLayer.push(arguments);
-  }
-
-  gtag('js', new Date());
-
-  gtag('config', 'G-PYVRSFMDRL');
 
 
 
-
-
-  // for carousel
-  window.addEventListener('DOMContentLoaded', (event) => {
-        const videoWrappers = document.querySelectorAll('.video-wrapper');
-      
-        videoWrappers.forEach(wrapper => {
-          const defaultVideo = wrapper.querySelector('.default-video');
-          const aspectRatio = defaultVideo.videoWidth / defaultVideo.videoHeight;
-          const height = wrapper.offsetWidth / aspectRatio;
-      
-          wrapper.style.height = `${height}px`;
-      
-          wrapper.addEventListener('mouseenter', () => {
-            defaultVideo.pause();
-            hoverVideo.play();
-          });
-      
-          wrapper.addEventListener('mouseleave', () => {
-            defaultVideo.play();
-            hoverVideo.pause();
-          });
-        });
-      }); 
-      $(document).ready(function() {
-        var carouselItems = $('.carousel .item');
-        var numItems = carouselItems.length;
-        var numVideos = 5;
-        var currentIndex = 0;
-    
-        $('.carousel').on('click', function() {
-          currentIndex++;
-          if (currentIndex + numVideos <= numItems) {
-            carouselItems.removeClass('active');
-            carouselItems.slice(currentIndex, currentIndex + numVideos).addClass('active');
-          } else {
-            currentIndex = 0;
-            carouselItems.removeClass('active');
-            carouselItems.slice(currentIndex, currentIndex + numVideos).addClass('active');
-          }
-        });
-    
-        carouselItems.slice(currentIndex, currentIndex + numVideos).addClass('active');
-      });
-</script>
-
-
-<footer class="footer">
-  <div class="container" style="text-align: left;">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-          <p>
-            Website content is licensed under a <a rel="license"
-                                                href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative
-            Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
-          </p>
-          <p>
-            Website source code based on the <a href="https://nerfies.github.io/"> Nerfies</a> project page and <a href="https://doubiiu.github.io/projects/DynamiCrafter/"> DynamiCrafter</a>. If you want to reuse their <a
-              href="https://github.com/nerfies/nerfies.github.io">source code</a>, please credit them appropriately.
-          </p>
+    <footer class="footer">
+      <div class="container" style="text-align: left;">
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content">
+              <p>
+                Website content is licensed under a <a rel="license"
+                                                    href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative
+                Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+              </p>
+              <p>
+                Website source code based on the <a href="https://nerfies.github.io/"> Nerfies</a> project page and <a href="https://doubiiu.github.io/projects/DynamiCrafter/"> DynamiCrafter</a>. If you want to reuse their <a
+                  href="https://github.com/nerfies/nerfies.github.io">source code</a>, please credit them appropriately.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</footer>
+    </footer>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll(".custom_carousel-container").forEach((carousel) => {
+        const videosContainer = carousel.querySelector(".custom_carousel-videos");
+        const videos = carousel.querySelectorAll(".custom_carousel-videos video");
+        const dotsContainer = carousel.querySelector(".custom_carousel-dots");
+        const prevBtn = carousel.querySelector(".custom_slider-navigation-previous");
+        const nextBtn = carousel.querySelector(".custom_slider-navigation-next");
+  
+        let currentIndex = 0;
+  
+        // 创建圆点
+        videos.forEach((_, index) => {
+          const dot = document.createElement("div");
+          dot.classList.add("custom_dot");
+          if (index === 0) dot.classList.add("custom_active");
+          dot.addEventListener("click", () => {
+            changeVideo(index);
+          });
+          dotsContainer.appendChild(dot);
+        });
+  
+        const dots = dotsContainer.querySelectorAll(".custom_dot");
+  
+        // 切换视频函数
+        function changeVideo(index) {
+          videos[currentIndex].pause();
+          dots[currentIndex].classList.remove("custom_active");
+          currentIndex = index;
+          dots[currentIndex].classList.add("custom_active");
+          const videoWidth = videos[0].offsetWidth; // 动态获取视频宽度
+          const offset = -currentIndex * videoWidth;
+          videosContainer.style.transform = `translateX(${offset}px)`;
+          videos[currentIndex].currentTime = 0;
+          videos[currentIndex].play();
+        }
+  
+        // 显示下一个视频
+        function showNextVideo() {
+          const nextIndex = (currentIndex + 1) % videos.length;
+          changeVideo(nextIndex);
+        }
+  
+        // 显示上一个视频
+        function showPrevVideo() {
+          const prevIndex = (currentIndex - 1 + videos.length) % videos.length;
+          changeVideo(prevIndex);
+        }
+  
+        // 绑定事件
+        nextBtn.addEventListener("click", showNextVideo);
+        prevBtn.addEventListener("click", showPrevVideo);
+  
+        videos.forEach((video) => {
+          video.addEventListener("ended", showNextVideo);
+        });
+  
+        // 初始化
+        changeVideo(0);
+      });
+    });
+  </script>
+
+
 </body>
 </html>
