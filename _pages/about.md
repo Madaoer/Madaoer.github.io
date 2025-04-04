@@ -83,5 +83,5 @@ transformations.
 - *2018*, National Contemporary Undergraduate Mathematical Contest IN Modeling in China, **First Prize** in Beijing region 
 
 # 📝 Academic Service
-- Journal Review: IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI), IEEE Transactions on Visualization and Computer Graphics (TVCG)
+- Journal Review: IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI), IEEE Transactions on Visualization and Computer Graphics (TVCG), Computer Graphics Forum (CGF)
 - Conference Review: ICLR
