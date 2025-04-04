@@ -19,7 +19,7 @@ redirect_from:
 
 I am currently a PhD student in Department of Data Science and AI at Monash University, luckily advised by Prof. [Tien-Tsin Wong](https://ttwong12.github.io/) and Prof. [Jianfei Cai](https://jianfei-cai.github.io/). I received B.S. and M.Phil. in Computer Science from Beijing Jiaotong University.
 
-I am interested in Video/3D generation and World Model.
+I am interested in Video/3D Generation and World Model.
 
 
 # 📖 Educations
