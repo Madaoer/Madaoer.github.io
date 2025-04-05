@@ -157,7 +157,7 @@
                   <span class="link-block">
                     <a href="#our_results_container"
                        class="external-link button is-normal is-rounded">
-                      <span>Showcases</span>
+                      <span>Demos</span>
                     </a>
                   </span>
                   <span class="link-block">
@@ -186,7 +186,7 @@
       </div>
     </section>
 
-    <h2 id="our_results_container" align="left">Showcases</h2>
+    <h2 id="our_results_container" align="center">- Demos -</h2>
   <div style="width: 1000px;"  class="custom_carousel-container" align="center">
     <div class="custom_carousel-videos">
     <div>
@@ -251,7 +251,7 @@
   <p>&nbsp;</p>
   <hr>
 
-  <h2 id="comparison_with_baseline_container" align="left">Comparisons with baseline methods</h2>
+  <h2 id="comparison_with_baseline_container" align="center">- Comparisons with baseline methods -</h2>
   <div style="width: 1000px;" class="custom_carousel-container" align="center">
     <div class="custom_carousel-videos">
       <video style="width: 1000px;" src="comparison/7.mp4" controls muted></video>
@@ -275,7 +275,7 @@
   <p>&nbsp;</p>
   <hr>
       
-  <h2 id="overview_container" align="left"><a name="image-results" id="image-results"></a>OverView</h2>
+  <h2 id="overview_container" align="center"><a name="image-results" id="image-results"></a>- OverView -</h2>
   <p align="left">
     VLIPP consists of two stages. In the first stage, the VLM generates a coarse-grained, physically plausible motion trajectory based on the provided input conditions. In the second stage, We simulate a synthetic video using the predicted trajectory to provide the motion condition. We then extract the optical flow from this video and convert it into structured noise. These conditions are fed into a motion controllable image-to-video diffusion model, and ultimately generates a physically plausible video.
   </p>
@@ -295,7 +295,7 @@
   <p>&nbsp;</p>
   <hr>
 
-  <h2 id="abstract_container" align="left"><a name="image-results" id="image-results"></a>Abstract</h2>
+  <h2 id="abstract_container" align="center"><a name="image-results" id="image-results"></a>- Abstract -</h2>
   <p align="left">
     Video diffusion models (VDMs) have advanced significantly in recent years, enabling the generation of highly realistic videos and drawing the attention of the community in their potential as world simulators. However, despite their capabilities, VDMs often fail to produce physically plausible videos due to an inherent lack of understanding of physics, resulting in incorrect dynamics and event sequences. To address this limitation, we propose a novel two-stage image-to-video generation framework that explicitly incorporates physics with vision and language informed physical prior.  In the first stage, we employ a Vision Language Model (VLM) as a coarse-grained motion planner, integrating chain-of-thought and physics-aware reasoning to predict a rough motion trajectories/changes that approximate real-world physical dynamics while ensuring the inter-frame consistency. In the second stage, we use the predicted motion trajectories/changes to guide the video generation of a VDM. As the predicted motion trajectories/changes are rough,  noise is added during inference to provide freedom to the VDM in generating motion with more fine details. Extensive experimental results demonstrate that our framework can produce physically plausible motion, and comparative evaluations highlight the notable superiority of our approach over existing methods.
   </p>
