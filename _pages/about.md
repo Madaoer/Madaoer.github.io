@@ -32,10 +32,11 @@ I am interested in Video/3D Generation and World Model.
 - *2020.10 - 2022.01*, Visiting Student, [Han lab](https://cqb.pku.edu.cn/hanlab/), PKU. -->
 
 # 🔥 News
+- *2025.01*: &nbsp;🎉 One paper [VLIPP](https://madaoer.github.io/projects/physically_plausible_video_generation/) is accepted by ICCV 2025.
 - *2024.01*: &nbsp;🎉 One paper [Neural Field Classifier](https://openreview.net/pdf?id=9NqC72m31m) is accepted by ICLR 2024.
-- *2023.08*: &nbsp;🎉 [SDFStdudio](https://github.com/autonomousvision/sdfstudio) has supported [S3IM](https://github.com/Madaoer/S3IM-Neural-Fields). 
+<!-- - *2023.08*: &nbsp;🎉 [SDFStdudio](https://github.com/autonomousvision/sdfstudio) has supported [S3IM](https://github.com/Madaoer/S3IM-Neural-Fields). 
 - *2023.08*: &nbsp;🔥 We release [S3IM](https://github.com/Madaoer/S3IM-Neural-Fields)(⭐️200+). 
-- *2023.07*: &nbsp;🎉 One paper [S3IM](https://arxiv.org/abs/2308.07032) is accepted by ICCV 2023.
+- *2023.07*: &nbsp;🎉 One paper [S3IM](https://arxiv.org/abs/2308.07032) is accepted by ICCV 2023. -->
 
 # 📝 Publications and Manuscripts
 
@@ -51,7 +52,7 @@ I am interested in Video/3D Generation and World Model.
   </div>
 </div>
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICCV 2023</div><img src='/images/paper_img2_500x300.png' alt="sym" width="100%"></div></div>
+<!-- <div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICCV 2023</div><img src='/images/paper_img2_500x300.png' alt="sym" width="100%"></div></div>
   <div class='paper-box-text' markdown="1">
   
   [S3IM: Stochastic Structural SIMilarity and Its Unreasonable Effectiveness for Neural Fields.](https://openaccess.thecvf.com/content/ICCV2023/papers/Xie_S3IM_Stochastic_Structural_SIMilarity_and_Its_Unreasonable_Effectiveness_for_Neural_ICCV_2023_paper.pdf)
@@ -62,9 +63,9 @@ I am interested in Video/3D Generation and World Model.
   - S3IM is a plug-and-play loss, effective and robust in various difficult tasks.
   - **Academic Impact**: Our work are promoted by more than 4 media and forums, such as [知乎](https://www.zhihu.com/question/614056414/answer/3244688928), [极世平台](https://mp.weixin.qq.com/s/GZnnX1lmenvpT2kN0SaWqA) 
   </div>
-</div>
+</div> -->
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Science China Life Sciences 2024</div><img src='/images/paper_img3_500x300.png' alt="sym" width="100%"></div></div>
+<!-- <div class='paper-box'><div class='paper-box-image'><div><div class="badge">Science China Life Sciences 2024</div><img src='/images/paper_img3_500x300.png' alt="sym" width="100%"></div></div>
   <div class='paper-box-text' markdown="1">
   
   Coordinate-Wise Monotonic Transformations for Privacy Preserving Facial Age Estimation.
@@ -75,13 +76,13 @@ I am interested in Video/3D Generation and World Model.
   - We present an approach for facial data masking that preserves age-related features using coordinate-wise monotonic
 transformations.
   </div>
-</div>
+</div> -->
 
 # 🎖 Honors and Awards
-- *2023*, **Outstanding Intern** of the Year, Baidu Research
+<!-- - *2023*, **Outstanding Intern** of the Year, Baidu Research -->
 - *2016-2022*, Model Student of Academic Records of Beijing Jiaotong University
-- *2018*, National Contemporary Undergraduate Mathematical Contest IN Modeling in China, **First Prize** in Beijing region 
+<!-- - *2018*, National Contemporary Undergraduate Mathematical Contest IN Modeling in China, **First Prize** in Beijing region  -->
 
-# 📝 Academic Service
+<!-- # 📝 Academic Service
 - Journal Review: IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI), IEEE Transactions on Visualization and Computer Graphics (TVCG), Computer Graphics Forum (CGF)
-- Conference Review: ICLR
+- Conference Review: ICLR -->
