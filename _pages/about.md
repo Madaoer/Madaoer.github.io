@@ -34,7 +34,7 @@ I am interested in Video/3D Generation and World Model.
 # 🔥 News
 - *2025.01*: &nbsp;🎉 One paper [VLIPP](https://madaoer.github.io/projects/physically_plausible_video_generation/) is accepted by ICCV 2025.
 - *2024.01*: &nbsp;🎉 One paper [Neural Field Classifier](https://openreview.net/pdf?id=9NqC72m31m) is accepted by ICLR 2024.
-*2023.08*: &nbsp;🎉 [SDFStdudio](https://github.com/autonomousvision/sdfstudio) has supported [S3IM](https://github.com/Madaoer/S3IM-Neural-Fields).
+- *2023.08*: &nbsp;🎉 [SDFStdudio](https://github.com/autonomousvision/sdfstudio) has supported [S3IM](https://github.com/Madaoer/S3IM-Neural-Fields).
 - *2023.08*: &nbsp;🔥 We release [S3IM](https://github.com/Madaoer/S3IM-Neural-Fields)(⭐️200+). 
 - *2023.07*: &nbsp;🎉 One paper [S3IM](https://arxiv.org/abs/2308.07032) is accepted by ICCV 2023.
 
