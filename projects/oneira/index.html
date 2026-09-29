@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oneira: From Open-Ended Generation to Open-World Interaction in Video World Models</title>
+<meta name="description" content="Oneira is an interactive video world model that closes the loop between generation and interaction through an explicit, extensible world state continuously managed by a coding agent.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Oneira: From Open-Ended Generation to Open-World Interaction in Video World Models">
+<meta property="og:description" content="An interactive video world model with an explicit world state table that a coding agent updates. Newly generated objects become interactable, and interaction outcomes persist across segments.">
+<meta property="og:url" content="https://madaoer.github.io/projects/oneira/">
+<meta property="og:image" content="https://madaoer.github.io/projects/oneira/static/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#5847d6">
+<link rel="icon" href="static/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="static/katex/katex.min.css">
+<link rel="stylesheet" href="static/css/main.css">
+<script defer src="static/katex/katex.min.js"></script>
+<script defer src="static/katex/auto-render.min.js"></script>
+<script defer src="static/js/cases.js"></script>
+<script defer src="static/js/main.js"></script>
+</head>
+<body>
+
+<header class="topbar" id="topbar">
+  <div class="container">
+    <a class="brand name-sc" href="#top">Oneira</a>
+    <nav id="topnav" aria-label="Sections">
+      <a href="#overview">Overview</a>
+      <a href="#method">Method</a>
+      <a href="#results">Results</a>
+      <a href="#benchmark">Benchmark</a>
+      <a href="#bibtex">BibTeX</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="container">
+    <h1 id="title">
+      <span class="name">Oneira</span>
+      <span class="sub">From <span class="nw">Open-Ended</span> Generation to <span class="nw">Open-World</span> Interaction in Video World Models</span>
+    </h1>
+
+    <div class="authors">
+      <span>Xindi Yang<sup>1</sup></span>
+      <span>Baolu Li<sup>3</sup></span>
+      <span>Liam Lee<sup>4</sup></span>
+      <span>Zhenfei Yin<sup>5</sup></span>
+      <span>Songxin Zhang<sup>4</sup></span>
+      <span>Zhuoyang Song<sup>4</sup></span>
+      <span>Xu Jia<sup>3</sup></span>
+      <span>Jianfei Cai<sup>1</sup></span>
+      <span>Tien-Tsin Wong<sup>1</sup></span>
+      <span>Bingyi Jing<sup>4</sup></span>
+      <span>Mengyue Yang<sup>2<svg class="mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-label="corresponding author"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></sup></span>
+    </div>
+    <div class="affils">
+      <span><sup>1</sup>Monash University</span>
+      <span><sup>2</sup>University of Bristol</span>
+      <span><sup>3</sup>Dalian University of Technology</span>
+      <span><sup>4</sup>The Chinese University of Hong Kong, Shenzhen</span>
+      <span><sup>5</sup>Oxford University</span>
+    </div>
+    <p class="corr"><svg class="mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg> Corresponding author</p>
+
+    <div class="links">
+      <!-- When the preprint is online, turn this span into <a class="btn" href="https://arxiv.org/abs/XXXX.XXXXX"> and drop the <em>. -->
+      <span class="btn soon" aria-disabled="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h6"/></svg>
+        Paper <em>arXiv soon</em>
+      </span>
+      <span class="btn soon" aria-disabled="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 18l6-6-6-6"/><path d="M8 6l-6 6 6 6"/></svg>
+        Code <em>coming soon</em>
+      </span>
+      <a class="btn" href="#results">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="M16 10.5l6-3.5v10l-6-3.5z"/></svg>
+        Videos
+      </a>
+      <a class="btn" href="#bibtex">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4z"/></svg>
+        BibTeX
+      </a>
+    </div>
+
+    <p class="tagline">What appears in the generated world becomes actionable, and what the agent changes remains changed.</p>
+  </div>
+
+  <div class="container">
+    <div class="carousel" id="reel" role="region" aria-roledescription="carousel" aria-label="Highlight videos">
+      <div class="track" id="reel-track" tabindex="0">
+        <article class="slide reel-tile is-active" aria-roledescription="slide" aria-label="1 of 4">
+          <div class="reel-media">
+            <video class="main" muted playsinline preload="none" poster="static/posters/long_horizon/case_1/ours_v3ep13__chain30s.jpg" data-src="assets/long_horizon/case_1/ours_v3ep13__chain30s.mp4" aria-label="Oneira, campfire and apple"></video>
+            <video class="inset" muted playsinline preload="none" poster="static/posters/long_horizon/case_1/reference_cond__chain30s.jpg" data-src="assets/long_horizon/case_1/reference_cond__chain30s.mp4" aria-hidden="true"></video>
+          </div>
+          <div class="reel-cap">
+            <h3>Persistent state</h3>
+            <p>A hand puts out the campfire with frost and later gilds the apple. Both objects keep their new states when the camera turns back.</p>
+            <a href="#case-lh1" data-case="lh1">Compare with baselines →</a>
+          </div>
+        </article>
+        <article class="slide reel-tile" aria-roledescription="slide" aria-label="2 of 4">
+          <div class="reel-media">
+            <video class="main" muted playsinline preload="none" poster="static/posters/unseen_obj/case_2/ours.jpg" data-src="assets/unseen_obj/case_2/ours.mp4" aria-label="Oneira, carved stone sphere"></video>
+            <video class="inset" muted playsinline preload="none" poster="static/posters/unseen_obj/case_2/cond_video.jpg" data-src="assets/unseen_obj/case_2/cond_video.mp4" aria-hidden="true"></video>
+          </div>
+          <div class="reel-cap">
+            <h3>Open-world interactivity</h3>
+            <p>The carved stone sphere is absent from the first frame. The coding agent registers it once it comes into view on the terrace, and a hand gilds it in the next segment.</p>
+            <a href="#case-un2" data-case="un2">Open the full case →</a>
+          </div>
+        </article>
+        <article class="slide reel-tile" aria-roledescription="slide" aria-label="3 of 4">
+          <div class="reel-media">
+            <video class="main" muted playsinline preload="none" poster="static/posters/multiobj/case1/ours.jpg" data-src="assets/multiobj/case1/ours.mp4" aria-label="Oneira, potted plants and toolboxes"></video>
+            <video class="inset" muted playsinline preload="none" poster="static/posters/multiobj/case1/cond_video.jpg" data-src="assets/multiobj/case1/cond_video.mp4" aria-hidden="true"></video>
+          </div>
+          <div class="reel-cap">
+            <h3>Instance-level interaction</h3>
+            <p>Among three identical plants and three identical toolboxes, only the middle plant turns gold and only the right toolbox freezes.</p>
+            <a href="#case-mo1" data-case="mo1">Compare with baselines →</a>
+          </div>
+        </article>
+        <article class="slide reel-tile" aria-roledescription="slide" aria-label="4 of 4">
+          <div class="reel-media">
+            <video class="main" muted playsinline preload="none" poster="static/posters/more_case/case_1/ours.jpg" data-src="assets/more_case/case_1/ours.mp4" aria-label="Oneira, fire extinguisher"></video>
+            <video class="inset" muted playsinline preload="none" poster="static/posters/more_case/case_1/cond_video.jpg" data-src="assets/more_case/case_1/cond_video.mp4" aria-hidden="true"></video>
+          </div>
+          <div class="reel-cap">
+            <h3>Chained interactions</h3>
+            <p>A hand takes the fire extinguisher off its mount and then sprays the burning bin until only thin smoke remains.</p>
+            <a href="#case-mc1" data-case="mc1">Open the full case →</a>
+          </div>
+        </article>
+      </div>
+      <button class="car-nav prev" type="button" aria-label="Previous video"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <button class="car-nav next" type="button" aria-label="Next video"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+    </div>
+    <div class="car-dots" id="reel-dots" role="tablist" aria-label="Highlight videos"></div>
+    <p class="reel-note">The inset in each video is the coarse conditioning video that the engine renders from the world state table.</p>
+  </div>
+</section>
+
+<section class="sec abstract" id="abstract">
+  <div class="container">
+    <div class="prose">
+    <h2>Abstract</h2>
+    <p>Generative video world models can now synthesize increasingly open-ended environments that agents can navigate and interact with in simple ways. Yet <em>open-ended generation does not imply full interaction</em>: as a generated world expands, newly created content through navigation should also expand what the agent can act upon, and as the agent changes the world, those changes should become persistent parts of the environment rather than transient visual effects. We characterize these two requirements as <strong>Open-World Interactivity</strong>, where newly generated or encountered entities are dynamically incorporated into the actionable world, and <strong>Persistent State</strong>, where interaction outcomes are committed to the world state and continue to influence subsequent observations and interactions. We present <strong class="name-sc">Oneira</strong>, an interactive video world model that closes the loop between generation and interaction through an explicit, extensible world state continuously managed by a coding agent. Given the current observation and an action or high-level goal, the agent reads the world state, grounds the relevant entities, plans the interaction, and writes its outcome back into a world state table. When exploration reveals new objects, the agent dynamically incorporates them from generated observations, allowing the interaction space to expand with the generated world. Meanwhile, previously induced state changes are carried across video segments, making the consequences of interaction persistent parts of subsequent world evolution. The updated world state is rendered along the camera action trajectory into a coarse conditioning video, from which a video generator fills in the appearance, motion, and interaction details not explicitly represented in the state. Experiments show that <span class="name-sc">Oneira</span> enables direct and logically consistent interaction with newly generated objects during open-world exploration, while preserving the effects of prior interactions consistently over long horizons.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="overview">
+  <div class="container">
+    <div class="prose">
+      <h2>Full interaction in a generated world</h2>
+      <p class="lead">Open-ended generation does not imply full interaction. A fully interactive generative world requires two properties.</p>
+      <div class="props">
+        <div class="prop">
+          <h3><span class="swatch purple" aria-hidden="true"></span>Open-World Interactivity</h3>
+          <p>As exploration reveals or generates new entities, the interaction space should expand with the world, so that newly created content can become explicit targets of subsequent actions.</p>
+        </div>
+        <div class="prop">
+          <h3><span class="swatch yellow" aria-hidden="true"></span>Persistent State</h3>
+          <p>When an agent changes the world, the outcome of that interaction should become a durable part of the world state and continue to constrain future observations and interactions.</p>
+        </div>
+      </div>
+      <p style="margin-top:22px">Oneira meets both requirements with an explicit world state table that a coding agent updates. As shown in Fig. 1, it supports navigation and interaction beyond the input image (a), instance-level control (b), generalization to novel objects (c), and effects beyond the target object (d).</p>
+    </div>
+    <figure class="fig">
+      <div class="frame"><img src="static/img/teaser.webp" width="2000" height="1586" loading="lazy" alt="Four rows of frames. (a) Explore, then interact. (b) Instance-level interaction. (c) Novel objects. (d) Effects beyond the target. Each frame carries the conditioning video as an inset, and a strip under each row shows the world state table."></div>
+      <figcaption><b>Fig. 1.</b> Oneira conditions video generation on an explicit world state table that a coding agent updates. The small image in the corner of each frame shows the coarse conditioning video rendered from the table. Purple marks the default state, yellow a changed state, and a dashed outline a box removed from the table.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="sec" id="method">
+  <div class="container">
+    <div class="prose">
+      <h2>Method</h2>
+      <p class="lead">Oneira separates world evolution from visual realization. The explicit world state determines what exists and what changes, while the video model determines how those changes look and move.</p>
+    </div>
+    <figure class="fig">
+      <div class="frame"><img src="static/img/pipeline.webp" width="2200" height="1128" loading="lazy" alt="Pipeline of Oneira. The coding agent reads the world state table and plans an action for the goal of picking up the lower left apple. The engine writes the action into the table and renders the coarse conditioning video along the camera path. The video generation model generates the segment from the first frame, optional memory frames, the conditioning video and the chunk captions."></div>
+      <figcaption><b>Fig. 2.</b> Pipeline of Oneira for one segment. The sphere is a schematic, and the conditioning and generated frames come from one segment produced by Oneira.</figcaption>
+    </figure>
+    <div class="parts">
+      <div class="part">
+        <h3><span class="n">1</span>Coding agent $A$</h3>
+        <p>Given the input image and a goal, the coding agent $A$ reads the previous world state table $\mathcal{T}_{k-1}$ and plans each action $\mathcal{P}_k$. For the goal in Fig. 2, $\mathcal{P}_k$ picks up the lower left apple in chunk 6 and records that apples 2 and 3 leave as a side effect.</p>
+      </div>
+      <div class="part">
+        <h3><span class="n">2</span>World state table $\mathcal{T}_k$</h3>
+        <p>The world state table $\mathcal{T}_k$ keeps only the interaction-relevant state of the scene. It records the walkable ground, and each object entry holds a semantic label, a 3D box, a presence flag, and a state per chunk. When the pear in Fig. 2 appears in the generated frames, the coding agent registers it in the table.</p>
+      </div>
+      <div class="part">
+        <h3><span class="n">3</span>Engine $E$</h3>
+        <p>The engine $E$ writes each planned action into the table and renders the updated table $\mathcal{T}_k$ along the camera path $C_k$ as the coarse conditioning video $V_k$. An interaction appears in $V_k$ as the removal or recoloring of an object box. In Fig. 2, the lower left apple loses its box at t2, and the two tumbling apples lose theirs at t3.</p>
+      </div>
+      <div class="part">
+        <h3><span class="n">4</span>Video generation model $G$</h3>
+        <p>The video model $G$ generates the segment from the first frame, optional memory frames, $V_k$, and the chunk captions $c_k$. It fills in the appearance, motion, and interaction details that the world state leaves unspecified. The last frame and the updated table $\mathcal{T}_k$ start the next segment.</p>
+      </div>
+    </div>
+    <div class="eq prose">
+      $$\begin{aligned}
+      \mathcal{P}_k &amp;= A\big(\mathcal{T}_{k-1}, \hat{I}^{(k)}_0, a_k\big) &amp;&amp; \text{plan} \\
+      (\mathcal{T}_k, V_k, c_k) &amp;= E\big(\mathcal{T}_{k-1}, \mathcal{P}_k\big) &amp;&amp; \text{update and render} \\
+      \hat{I}^{(k)} &amp;\sim G\big(\hat{I}^{(k)}_0, V_k, c_k\big) &amp;&amp; \text{generate}
+      \end{aligned}$$
+      <p>Here $a_k$ is the action input of segment $k$ and $\hat{I}^{(k)}_0$ is its first frame. This loop follows a standard world model with a transition $s_k = f(s_{k-1}, a_k)$ and an observation model $o_k \sim p(o \mid s_k)$. The world state table $\mathcal{T}_k$ acts as the explicit state $s_k$, the coding agent $A$ and the engine $E$ jointly instantiate $f$, and the video model $G$ serves as $p$.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="results">
+  <div class="container">
+    <div class="prose">
+      <h2>Results</h2>
+      <p>Our baselines are the <span class="nw">MiniMax-H3 Ref2VA</span> backbone and three interactive video world models, <span class="nw">LingBot-World-V2</span>, <span class="nw">YUME 1.5</span>, and AlayaWorld. The first two parts below compare Oneira with them on the same first frame and the same chunk captions, and the last two parts show Oneira on its own.</p>
+      <p>Each case shows the first frame, the conditioning video of Oneira, and the chunk captions next to the generated videos. Orange marks the chunks whose captions carry an interaction. All videos of a case play in sync while the case is on screen, and the caption panel highlights the current chunk during playback. Click a video to play or pause, and double-click it to view it large.</p>
+    </div>
+    <noscript><p class="prose">The video players on this page need JavaScript.</p></noscript>
+    <div id="blocks"></div>
+  </div>
+</section>
+
+<section class="sec" id="benchmark">
+  <div class="container">
+    <div class="prose">
+      <h2>Quantitative results</h2>
+      <p>We evaluate interaction control, memory of changed states, and visual quality on InteractionBench. Bold marks the best entry in each column based on unrounded scores.</p>
+    </div>
+    <div class="bench" data-tabs>
+      <div class="pills" role="tablist" aria-label="Quantitative results">
+        <button type="button" role="tab" id="tab-b-inter" aria-controls="panel-b-inter" aria-selected="true">Interaction</button>
+        <button type="button" role="tab" id="tab-b-mem" aria-controls="panel-b-mem" aria-selected="false" tabindex="-1">Memory</button>
+        <button type="button" role="tab" id="tab-b-vb" aria-controls="panel-b-vb" aria-selected="false" tabindex="-1">VBench</button>
+      </div>
+      <div class="bench-panel" role="tabpanel" id="panel-b-inter" aria-labelledby="tab-b-inter">
+        <div class="tablewrap">
+          <table class="res">
+            <thead><tr><th scope="col">Method</th><th scope="col">Interaction ↑</th><th scope="col">Timing ↑</th><th scope="col">Target ↑</th></tr></thead>
+            <tbody>
+              <tr><td>MiniMax-H3 Ref2VA</td><td>0.30</td><td>0.57</td><td>0.53</td></tr>
+              <tr><td>LingBot-World-V2</td><td>0.49</td><td>0.40</td><td>0.39</td></tr>
+              <tr><td>YUME 1.5</td><td>0.05</td><td>0.43</td><td>0.22</td></tr>
+              <tr><td>AlayaWorld</td><td>0.08</td><td>0.16</td><td>0.26</td></tr>
+              <tr class="ours"><td>Oneira (ours)</td><td><b>0.78</b></td><td><b>0.76</b></td><td><b>0.82</b></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="bench-note">Pass rates on the 100 interaction cases, checking the action, its chunk, and the changed instance.</p>
+      </div>
+      <div class="bench-panel" role="tabpanel" id="panel-b-mem" aria-labelledby="tab-b-mem" hidden>
+        <div class="tablewrap">
+          <table class="res">
+            <thead><tr><th scope="col">Method</th><th scope="col">PSNR ↑</th><th scope="col">SSIM ↑</th><th scope="col">State ↑</th></tr></thead>
+            <tbody>
+              <tr><td>MiniMax-H3 Ref2VA</td><td>10.96</td><td>0.34</td><td>0.68</td></tr>
+              <tr><td>LingBot-World-V2</td><td>9.08</td><td>0.27</td><td>0.44</td></tr>
+              <tr><td>YUME 1.5</td><td>10.09</td><td>0.35</td><td>0.41</td></tr>
+              <tr><td>AlayaWorld</td><td>9.19</td><td>0.30</td><td>0.39</td></tr>
+              <tr class="ours"><td>Oneira (ours)</td><td><b>21.11</b></td><td><b>0.64</b></td><td><b>0.80</b></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="bench-note">PSNR and SSIM compare the visit and revisit frames at the same pose on the 50 memory chains, and State checks that the target keeps its changed state.</p>
+      </div>
+      <div class="bench-panel" role="tabpanel" id="panel-b-vb" aria-labelledby="tab-b-vb" hidden>
+        <div class="tablewrap">
+          <table class="res">
+            <thead><tr><th scope="col">Method</th><th scope="col" class="wrap">Subject consistency</th><th scope="col" class="wrap">Background consistency</th><th scope="col" class="wrap">Motion smoothness</th><th scope="col" class="wrap">Temporal flickering</th><th scope="col" class="wrap">Dynamic degree</th><th scope="col" class="wrap">Aesthetic quality</th><th scope="col" class="wrap">Imaging quality</th><th scope="col" class="wrap">Overall consistency</th></tr></thead>
+            <tbody>
+              <tr><td>MiniMax-H3 Ref2VA</td><td>0.83</td><td>0.90</td><td>0.99</td><td>0.97</td><td><b>1.00</b></td><td>0.53</td><td>0.73</td><td>0.19</td></tr>
+              <tr><td>LingBot-World-V2</td><td>0.79</td><td>0.87</td><td>0.97</td><td><b>0.98</b></td><td>0.97</td><td>0.54</td><td>0.72</td><td>0.20</td></tr>
+              <tr><td>YUME 1.5</td><td>0.83</td><td>0.89</td><td>0.99</td><td>0.97</td><td>0.95</td><td>0.52</td><td><b>0.74</b></td><td>0.20</td></tr>
+              <tr><td>AlayaWorld</td><td>0.79</td><td>0.88</td><td>0.99</td><td>0.95</td><td>0.65</td><td>0.49</td><td>0.69</td><td>0.18</td></tr>
+              <tr class="ours"><td>Oneira (ours)</td><td><b>0.84</b></td><td><b>0.90</b></td><td><b>0.99</b></td><td>0.97</td><td><b>1.00</b></td><td><b>0.54</b></td><td>0.73</td><td><b>0.22</b></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="bench-note">Eight VBench dimensions on all 150 cases.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="bibtex">
+  <div class="container">
+    <div class="prose">
+    <h2>BibTeX</h2>
+    <div class="bib">
+      <pre id="bibtext">@article{yang2026oneira,
+  title   = {Oneira: From Open-Ended Generation to Open-World Interaction in Video World Models},
+  author  = {Yang, Xindi and Li, Baolu and Lee, Liam and Yin, Zhenfei and Zhang, Songxin and Song, Zhuoyang and Jia, Xu and Cai, Jianfei and Wong, Tien-Tsin and Jing, Bingyi and Yang, Mengyue},
+  journal = {arXiv preprint},
+  year    = {2026}
+}</pre>
+      <button class="copy" type="button" id="copybib">Copy</button>
+    </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <span>© 2026 The <span class="name-sc">Oneira</span> authors</span>
+    <a href="#top">Back to top ↑</a>
+  </div>
+</footer>
+
+</body>
+</html>
