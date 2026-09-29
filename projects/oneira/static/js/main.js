@@ -44,6 +44,74 @@ if (window.renderMathInElement) {
   });
 }
 
+/* ---------- Chunk captions ---------- */
+
+/* Chunk captions panel, after the style of Fig. 2. update(t) highlights the chunk at time t, and a click
+   on a cell calls onSeek with the start time of that chunk. The result players and the highlight
+   carousel both use it. */
+const chunkPanel = (d, onSeek) => {
+  const nSeg = d.segments || 1;
+  const n = nSeg * CHUNKS;
+  const evByK = new Map((d.events || []).map((e) => [e.k - 1, e]));
+  const box = el("div", "caps" + (nSeg > 1 ? " chain" : ""));
+  const head = el("div", "head");
+  const title = el("div", "title");
+  title.append(document.createTextNode("chunk captions "));
+  const ci = el("i", null, "c");
+  ci.appendChild(el("sub", null, "k"));
+  title.appendChild(ci);
+  const strip = el("div", "strip");
+  const cells = [];
+  for (let s = 0; s < nSeg; s++) {
+    const seg = el("div", "seg");
+    for (let j = 0; j < CHUNKS; j++) {
+      const k = s * CHUNKS + j;
+      const c = el("button", "cell" + (evByK.has(k) ? " ev" : ""));
+      c.type = "button";
+      c.title = "Chunk " + (k + 1) + (evByK.has(k) ? ", interaction" : "");
+      c.setAttribute("aria-label", c.title);
+      c.addEventListener("click", () => onSeek(chunkStart(k, d.segFrames) + 0.01));
+      seg.appendChild(c);
+      cells.push(c);
+    }
+    strip.appendChild(seg);
+  }
+  head.append(title, strip);
+  box.appendChild(head);
+
+  const ul = el("ul");
+  const capLines = new Map();
+  [...evByK.entries()].sort((a, b) => a[0] - b[0]).forEach(([k, e]) => {
+    const li = el("li", "ev");
+    const txt = el("span");
+    txt.appendChild(el("span", "k", "Chunk " + (k + 1)));
+    txt.appendChild(document.createTextNode(e.text));
+    li.append(el("span", "sq"), txt);
+    ul.appendChild(li);
+    capLines.set(k, li);
+  });
+  const idle = el("li");
+  idle.append(el("span", "sq"), el("span", null, "Nothing happens."));
+  ul.appendChild(idle);
+  box.appendChild(ul);
+  const nowText = el("div", "now-text", "");
+  box.appendChild(nowText);
+
+  let cur = -1;
+  const update = (t) => {
+    let k = 0;
+    while (k + 1 < n && t >= chunkStart(k + 1, d.segFrames)) k++;
+    if (k === cur) return;
+    cur = k;
+    cells.forEach((c, i) => c.classList.toggle("now", i === k));
+    capLines.forEach((li, i) => li.classList.toggle("now", i === k));
+    idle.classList.toggle("now", !capLines.has(k));
+    nowText.textContent = "Now in chunk " + (k + 1) + " of " + n;
+  };
+  update(0);
+  return { el: box, update };
+};
+
 /* ---------- Synchronized players ---------- */
 
 /* One synchronized player per case. The Oneira video is the clock and the others follow it by time. */
@@ -57,7 +125,6 @@ class SyncGroup {
     this.userPaused = REDUCED;
     this.loop = true;
     this.raf = null;
-    this.curChunk = -1;
     this.build();
   }
 
@@ -95,56 +162,8 @@ class SyncGroup {
   }
 
   buildCaptions() {
-    const d = this.def;
-    const nSeg = d.segments || 1;
-    const n = nSeg * CHUNKS;
-    const evByK = new Map((d.events || []).map((e) => [e.k - 1, e]));
-    const box = el("div", "caps" + (nSeg > 1 ? " chain" : ""));
-    const head = el("div", "head");
-    const title = el("div", "title");
-    title.append(document.createTextNode("chunk captions "));
-    const ci = el("i", null, "c");
-    ci.appendChild(el("sub", null, "k"));
-    title.appendChild(ci);
-    const strip = el("div", "strip");
-    this.cells = [];
-    for (let s = 0; s < nSeg; s++) {
-      const seg = el("div", "seg");
-      for (let j = 0; j < CHUNKS; j++) {
-        const k = s * CHUNKS + j;
-        const c = el("button", "cell" + (evByK.has(k) ? " ev" : ""));
-        c.type = "button";
-        c.title = "Chunk " + (k + 1) + (evByK.has(k) ? ", interaction" : "");
-        c.setAttribute("aria-label", c.title);
-        c.addEventListener("click", () => { this.pause(); this.userPaused = true; this.seek(chunkStart(k, d.segFrames) + 0.01); });
-        seg.appendChild(c);
-        this.cells.push(c);
-      }
-      strip.appendChild(seg);
-    }
-    head.append(title, strip);
-    box.appendChild(head);
-
-    const ul = el("ul");
-    this.capLines = new Map();
-    [...evByK.entries()].sort((a, b) => a[0] - b[0]).forEach(([k, e]) => {
-      const li = el("li", "ev");
-      const txt = el("span");
-      txt.appendChild(el("span", "k", "Chunk " + (k + 1)));
-      txt.appendChild(document.createTextNode(e.text));
-      li.append(el("span", "sq"), txt);
-      ul.appendChild(li);
-      this.capLines.set(k, li);
-    });
-    const idle = el("li");
-    idle.append(el("span", "sq"), el("span", null, "Nothing happens."));
-    ul.appendChild(idle);
-    this.idleLine = idle;
-    box.appendChild(ul);
-    this.nowText = el("div", "now-text", "");
-    box.appendChild(this.nowText);
-    this.nChunks = n;
-    return box;
+    this.panel = chunkPanel(this.def, (t) => { this.pause(); this.userPaused = true; this.seek(t); });
+    return this.panel.el;
   }
 
   build() {
@@ -363,15 +382,7 @@ class SyncGroup {
   }
 
   updateChunk(t) {
-    if (!this.cells) return;
-    let k = 0;
-    while (k + 1 < this.nChunks && t >= chunkStart(k + 1, this.def.segFrames)) k++;
-    if (k === this.curChunk) return;
-    this.curChunk = k;
-    this.cells.forEach((c, i) => c.classList.toggle("now", i === k));
-    this.capLines.forEach((li, i) => li.classList.toggle("now", i === k));
-    this.idleLine.classList.toggle("now", !this.capLines.has(k));
-    this.nowText.textContent = "Now in chunk " + (k + 1) + " of " + this.nChunks;
+    if (this.panel) this.panel.update(t);
   }
 
   updateTime(t) {
@@ -620,6 +631,11 @@ const Carousel = (() => {
     const btn = el("button", "playbtn");
     btn.type = "button";
     media.appendChild(btn);
+    /* Chunk captions of the same case as in the Results section, which the slide links to. */
+    const link = slide.querySelector("a[data-case]");
+    const def = link && typeof CASES !== "undefined" ? CASES.find((c) => c.id === link.dataset.case) : null;
+    const panel = def ? chunkPanel(def, (t) => { main.currentTime = t; }) : null;
+    if (panel) link.before(panel.el);
     let loaded = false, raf = null;
     const icon = () => {
       btn.innerHTML = main.paused ? PLAY_ICON : PAUSE_ICON;
@@ -633,6 +649,7 @@ const Carousel = (() => {
       if (Math.abs(inset.currentTime - main.currentTime) > 0.12) follow();
       if (inset.paused && !inset.ended) inset.play().catch(() => {});
       if (i === current && main.duration) dots[i].fill.style.width = (100 * main.currentTime / main.duration).toFixed(2) + "%";
+      if (panel) panel.update(main.currentTime);
       raf = requestAnimationFrame(frame);
     };
     const api = {
@@ -650,6 +667,7 @@ const Carousel = (() => {
     main.addEventListener("playing", () => ctl[(i + 1) % n].load());
     main.addEventListener("pause", () => { inset.pause(); icon(); });
     main.addEventListener("seeked", follow);
+    if (panel) main.addEventListener("timeupdate", () => panel.update(main.currentTime));
     main.addEventListener("ended", () => {
       if (i !== current) return;
       dots[i].fill.style.width = "100%";
