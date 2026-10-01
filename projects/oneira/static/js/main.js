@@ -170,10 +170,6 @@ class SyncGroup {
     const d = this.def;
     this.root.appendChild(el("h4", null, d.title));
     this.root.appendChild(el("p", "desc", d.desc));
-    const chk = el("p", "check");
-    chk.appendChild(el("b", null, "What to look for. "));
-    chk.appendChild(document.createTextNode(d.check));
-    this.root.appendChild(chk);
 
     let firstTile = null;
     if (d.first) {

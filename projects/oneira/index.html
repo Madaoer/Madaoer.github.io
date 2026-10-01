@@ -83,11 +83,14 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 18l6-6-6-6"/><path d="M8 6l-6 6 6 6"/></svg>
         Code
       </a>
-      <a class="btn" href="#results">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="M16 10.5l6-3.5v10l-6-3.5z"/></svg>
-        Videos
-      </a>
     </div>
+    <nav class="jumps" aria-label="Jump to section">
+      <a href="#abstract">Abstract</a>
+      <a href="#overview">Overview</a>
+      <a href="#method">Method</a>
+      <a href="#results">Results</a>
+      <a href="#benchmark">Benchmark</a>
+    </nav>
 
     <p class="tagline">What appears in the generated world becomes actionable, and what the agent changes remains changed.</p>
   </div>
@@ -226,6 +229,12 @@
       <h2>Results</h2>
       <p>Our baselines are the <span class="nw">MiniMax-H3 Ref2VA</span> backbone and three interactive video world models, <span class="nw">LingBot-World-V2</span>, <span class="nw">YUME 1.5</span>, and AlayaWorld. The first two parts below compare Oneira with them on the same first frame and the same chunk captions, and the last two parts show Oneira on its own.</p>
       <p>Each case shows the first frame, the conditioning video of Oneira, and the chunk captions next to the generated videos. Orange marks the chunks whose captions carry an interaction. All videos of a case play in sync while the case is on screen, and the caption panel highlights the current chunk during playback. Click a video to play or pause, and double-click it to view it large.</p>
+      <nav class="jumps sub" aria-label="Parts of the results">
+        <a href="#long">Long-horizon consistency</a>
+        <a href="#multi">Identical objects</a>
+        <a href="#unseen">Unseen objects</a>
+        <a href="#more">More results</a>
+      </nav>
     </div>
     <noscript><p class="prose">The video players on this page need JavaScript.</p></noscript>
     <div id="blocks"></div>
