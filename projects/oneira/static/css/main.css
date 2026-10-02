@@ -134,6 +134,8 @@ sup { line-height: 0; }
   margin: 30px auto 0; max-width: 940px; font-size: 17px;
 }
 .authors span { white-space: nowrap; }
+/* Author names link to their homepages, in the light blue the user picked (readable in both themes). */
+.authors a { color: #209cee; }
 /* The second author line starts at Xu Jia, as in the paper. */
 .authors .br { flex-basis: 100%; height: 0; }
 .authors sup { font-size: 11px; margin-left: 1px; color: var(--dim); }
