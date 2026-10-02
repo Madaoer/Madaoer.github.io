@@ -15,7 +15,7 @@ const CASES = [
     segments: 3,
     events: [
       { k: 7, text: "A hand casts a jet of frost at the campfire. The fire on a campfire is put out by frost and it ends up dark and crusted with ice." },
-      { k: 14, text: "A hand casts a gilding spell at the apple. The apple turns into solid gold and stays gold." },
+      { k: 13, text: "A hand casts a gilding spell at the apple. The apple turns into solid gold and stays gold." },
     ],
     videos: [
       { src: "assets/long_horizon/case_1/ours_v3ep13__chain30s.mp4", label: "Oneira (ours)", ours: true },
@@ -109,7 +109,7 @@ const CASES = [
     cond: "assets/multiobj/case1/cond_video.mp4",
     segments: 1,
     events: [
-      { k: 3, text: "A hand casts a gilding spell at the middle potted plant. The middle potted plant turns into solid gold and stays gold." },
+      { k: 2, text: "A hand casts a gilding spell at the middle potted plant. The middle potted plant turns into solid gold and stays gold." },
       { k: 5, text: "A hand casts a jet of frost at the right wooden toolbox. The right wooden toolbox is coated in white frost and ice and stays frozen over." },
     ],
     videos: [
@@ -233,7 +233,7 @@ const CASES = [
     segments: 1,
     events: [
       { k: 4, text: "A hand takes the fire extinguisher off its mount. The fire extinguisher is off its mount and held in the hand." },
-      { k: 6, text: "A hand sprays the fire extinguisher at the plastic recycling bin. The fire in a plastic recycling bin is put out and only thin smoke remains." },
+      { k: 5, text: "A hand sprays the fire extinguisher at the plastic recycling bin. The fire in a plastic recycling bin is put out and only thin smoke remains." },
     ],
     videos: [
       { src: "assets/more_case/case_1/ours.mp4", label: "Oneira (ours)", ours: true },
