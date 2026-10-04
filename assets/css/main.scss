@@ -107,3 +107,33 @@ h1:before, .anchor:before {
     background-color: #00369f;
     font-size: .8em;
 }
+.news-box {
+    max-height: 12em;
+    overflow-y: auto;
+    padding-right: .5em;
+    scrollbar-width: thin;
+    scrollbar-color: #ccc transparent;
+    // shadows at the top/bottom edge only while there is more to scroll
+    background:
+        linear-gradient(#fff 30%, rgba(255, 255, 255, 0)) center top,
+        linear-gradient(rgba(255, 255, 255, 0), #fff 70%) center bottom,
+        radial-gradient(farthest-side at 50% 0, rgba(0, 0, 0, .15), rgba(0, 0, 0, 0)) center top,
+        radial-gradient(farthest-side at 50% 100%, rgba(0, 0, 0, .15), rgba(0, 0, 0, 0)) center bottom;
+    background-repeat: no-repeat;
+    background-size: 100% 40px, 100% 40px, 100% 12px, 100% 12px;
+    background-attachment: local, local, scroll, scroll;
+
+    ul {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #ccc;
+        border-radius: 3px;
+    }
+}
