@@ -19,7 +19,7 @@ redirect_from:
 
 I am currently a PhD student in the Department of Data Science and AI at Monash University, luckily advised by Prof. [Tien-Tsin Wong](https://ttwong12.github.io/) and Prof. [Jianfei Cai](https://jianfei-cai.github.io/). I received B.S. and M.Phil. in Computer Science from Beijing Jiaotong University.
 
-I am interested in Image/Video Generation and World Models.
+I am interested in Image/Video Generation and World Models. I am actively seeking 2027 internships. If you have any suitable openings or are interested in collaboration, please feel free to [reach out](mailto:xindi.yang@monash.edu)!
 
 
 # 📖 Education
